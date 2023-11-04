@@ -1,5 +1,5 @@
 import React from 'react'
-import CustomSelectBox from '../../../components/layout/UserAreaSelectBox'
+import CustomSelectBox from './CustomSelectBox'
 
 type Props = {}
 

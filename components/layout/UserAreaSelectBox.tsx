@@ -1,51 +1,54 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
-import { BsChevronBarExpand } from "react-icons/bs";
-const cities = ["Khartoum", "Omdurman", "Bahri", "Shendi", "Medani", "Atbara"];
+
+const actions = [
+  { id: 1, label: "Profile", route: "/users/profile" },
+  { id: 2, label: "Transactions", route: "/users/transactions" },
+  { id: 3, label: "Log Out", route: "/users/logout" },
+];
 type Props = {};
 
 const UserAreaSelectBox = (props: Props) => {
-  const [selectedCity, setSelectedCity] = useState(cities[0]);
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <div className="bg-gray-100 flex flex-col justify-center items-center w-fit relative z-30">
+      <div className="flex flex-col justify-center items-center relative z-30">
         <div
           onClick={() => setOpen((prev) => !prev)}
-          className="flex justify-between items-center bg-white w-48 my-2 p-2 rounded-lg cursor-pointer"
+          className="p-2 cursor-pointer"
         >
-          <span>{selectedCity}</span>
-          <BsChevronBarExpand className="text-gray-400" />
+          <span className="border-2 border-blue-500 p-1 rounded-lg">
+            Abdalla Misbah
+          </span>
         </div>
         <div
-          className={`flex flex-col bg-white w-48 my-2 rounded-lg transition-all duration-200 overflow-hidden ${
+          className={`flex flex-col bg-sky-100 w-40 my-2 rounded-lg transition-all duration-200 overflow-hidden ${
             open ? "opacity-100 h-auto" : "opacity-0 h-0"
-          } absolute top-16 left-0`}
+          } absolute top-12 right-0`}
         >
-          {cities.map((item) => (
+          {actions.map((item) => (
             <div
-              key={item}
+              key={item.id}
               onClick={() => {
-                setSelectedCity(item);
                 setOpen(false);
               }}
-              className={`flex justify-start items-center gap-x-2 px-2 py-1 hover:bg-orange-100 cursor-pointer ${
-                selectedCity === item ? "bg-orange-100" : ""
-              }`}
+              className={`flex justify-start items-center gap-x-2 px-2 py-1 hover:bg-sky-300 cursor-pointer`}
             >
-              <AiOutlineCheck
-                className={`text-orange-300 ${
-                  selectedCity === item ? "opacity-100" : "opacity-0"
-                }`}
-              />
-              <span>{item}</span>
+              {/* <AiOutlineCheck className={`text-sky-300`} /> */}
+              <Link href={item.route}>{item.label}</Link>
             </div>
           ))}
         </div>
       </div>
-      <div onClick={() => setOpen(false)} className={`bg-gray-100 opacity-50 fixed inset-0 z-0 ${open ? "block" : "hidden"}`}></div>
+      <div
+        onClick={() => setOpen(false)}
+        className={`bg-gray-100 opacity-50 fixed inset-0 z-0 ${
+          open ? "block" : "hidden"
+        }`}
+      ></div>
     </>
   );
 };
