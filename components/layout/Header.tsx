@@ -1,8 +1,9 @@
 "use client";
-import { MenuContext } from "@/context/MenuContext";
 import React, { useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
+import { MenuContext } from "@/context/MenuContext";
+
 type HeaderProps = {};
 
 const Header = (props: HeaderProps) => {

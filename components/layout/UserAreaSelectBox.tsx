@@ -5,7 +5,7 @@ import { BsChevronBarExpand } from "react-icons/bs";
 const cities = ["Khartoum", "Omdurman", "Bahri", "Shendi", "Medani", "Atbara"];
 type Props = {};
 
-const CustomSelectBox = (props: Props) => {
+const UserAreaSelectBox = (props: Props) => {
   const [selectedCity, setSelectedCity] = useState(cities[0]);
   const [open, setOpen] = useState(false);
 
@@ -50,4 +50,4 @@ const CustomSelectBox = (props: Props) => {
   );
 };
 
-export default CustomSelectBox;
+export default UserAreaSelectBox;
