@@ -4,6 +4,7 @@ import { FaBars } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import { MenuContext } from "@/context/MenuContext";
 import UserAreaSelectBox from "./UserAreaSelectBox";
+import LanguageSelectBox from "./LanguageSelectBox";
 
 type HeaderProps = {};
 
@@ -14,7 +15,7 @@ const Header = (props: HeaderProps) => {
       <div>Brand</div>
       <div>
         <div className="flex justify-center items-center gap-3">
-          <BiWorld className="cursor-pointer" />
+          <LanguageSelectBox />
           <FaBars onClick={toggle} className="lg:hidden cursor-pointer" />
           <div>
             <UserAreaSelectBox />
