@@ -26,7 +26,7 @@ const LanguageSelectBox = (props: Props) => {
         <div
           className={`flex flex-col bg-sky-100 w-16 rounded-lg transition-all duration-200 overflow-hidden ${
             open ? "opacity-100 h-auto" : "opacity-0 h-0"
-          } absolute top-12 right-8`}
+          } absolute top-12 right-0`}
         >
           {languages.map((item) => (
             <div

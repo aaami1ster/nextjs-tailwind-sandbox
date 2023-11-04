@@ -4,7 +4,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { GrProjects } from "react-icons/gr";
 import { SiHelpscout, SiSinglestore } from "react-icons/si";
 import { FaAngleRight, FaCheck, FaCheckDouble } from "react-icons/fa";
-import { FiPhoneCall } from "react-icons/fi";
+import { FiBarChart2, FiPhoneCall } from "react-icons/fi";
 import Link from "next/link";
 import { MenuContext } from "@/context/MenuContext";
 
@@ -47,6 +47,10 @@ const SideBar = (props: SideBarProps) => {
           <FaCheckDouble className="mr-2" />
           <h3 className="flex-1">Complex</h3>
           <FaAngleRight />
+        </li>
+        <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-500 rounded-xl p-2">
+          <FiBarChart2 className="mr-2" />
+          <Link href={"/flow-chart"}>Flow Chart</Link>
         </li>
         <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-500 rounded-xl p-2">
           <SiHelpscout className="mr-2" />
