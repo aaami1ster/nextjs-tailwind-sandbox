@@ -6,7 +6,7 @@ type Props = {};
 const FlowChart = (props: Props) => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="text-3xl top-0 absolute">Organisation Flow chart</h1>
+      <h1 className="text-3xl top-12 absolute">Organisation Flow chart</h1>
       <div className="container mx-auto text-center pt-24">
         <div className="items-center justify-center flex">
           <div className="text-center">
@@ -358,12 +358,6 @@ const FlowChart = (props: Props) => {
           </div>
         </div>
       </div>
-      <a
-        className="text-md underline text-gray-500 hover:text-gray-700 cursor-pointer bottom-0"
-        href="https://codesandbox.io/s/github/ravisankarchinnam/tailwindcss-flow-chart"
-      >
-        React.js version
-      </a>
     </div>
   );
 };
