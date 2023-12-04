@@ -21,12 +21,12 @@ const LanguageSelectBox = (props: Props) => {
           onClick={() => setOpen((prev) => !prev)}
           className="p-2 cursor-pointer"
         >
-          <BiWorld className="text-2xl cursor-pointer" />
+          <BiWorld className="text-secondary text-2xl cursor-pointer" />
         </div>
         <div
-          className={`flex flex-col bg-sky-100 w-16 rounded-lg transition-all duration-200 overflow-hidden ${
+          className={`flex flex-col bg-white w-20 rounded-b-sm transition-all duration-200 overflow-hidden ${
             open ? "opacity-100 h-auto" : "opacity-0 h-0"
-          } absolute top-12 right-0`}
+          } absolute top-10 right-0  shadow-lg text-[#495057]`}
         >
           {languages.map((item) => (
             <div

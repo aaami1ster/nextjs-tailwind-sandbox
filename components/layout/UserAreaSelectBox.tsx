@@ -24,9 +24,9 @@ const UserAreaSelectBox = (props: Props) => {
           </span>
         </div>
         <div
-          className={`flex flex-col bg-sky-100 w-40 my-2 rounded-lg transition-all duration-200 overflow-hidden ${
+          className={`flex flex-col bg-white w-40 rounded-b-sm transition-all duration-200 overflow-hidden ${
             open ? "opacity-100 h-auto" : "opacity-0 h-0"
-          } absolute top-12 right-0`}
+          } absolute top-10 right-0 shadow-lg text-[#495057]`}
         >
           {actions.map((item) => (
             <div
