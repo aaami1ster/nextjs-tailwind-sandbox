@@ -15,6 +15,100 @@ export type AppItemType = {
 };
 
 export const apps: AppItemType[] = [
+  
+  {
+    name: "Employees",
+    subject: "Employee",
+    icon: "tower",
+    class: "me-2 text-danger",
+    tags: ["employees", "departments", "configuration"],
+    menu: [
+      {
+        name: "Employees",
+        subject: "Employee",
+        menu: [
+          {
+            name: "Employees",
+            subject: "Employee",
+            to: "/employees",
+            menu: [],
+          },
+        ],
+      },
+      {
+        name: "Departments",
+        subject: "Department",
+        to: "/departments",
+        menu: [],
+      },
+      {
+        name: "Configuration",
+        subject: "Configuration",
+        menu: [
+          {
+            name: "Settings",
+            subject: "Settings",
+            to: "/settings",
+            menu: [],
+          },
+          {
+            name: "Employee",
+            subject: "Employee",
+            menu: [
+              {
+                name: "Departments",
+                subject: "Departments",
+                to: "/departments",
+                menu: [],
+              },
+              {
+                name: "Work Locations",
+                subject: "WorkLocation",
+                to: "/worklocations",
+                menu: [],
+              },
+              {
+                name: "Departure Reason",
+                subject: "DepartureReason",
+                to: "/departurereason",
+                menu: [],
+              }
+            ],
+          },
+          {
+            name: "Recruitment",
+            subject: "Recruitment",
+            menu: [
+              {
+                name: "Job Positions",
+                subject: "JobPositions",
+                to: "/jobpositions",
+                menu: [],
+              },
+              {
+                name: "Employment Types",
+                subject: "EmploymentType",
+                to: "/employmenttypes",
+                menu: [],
+              }
+            ],
+          },
+          {
+            name: "Activity Planning",
+            subject: "ActivityPlanning",
+            menu: [
+              {
+                name: "On/Off Boarding Plan",
+                subject: "OnOffBoardingPlan",
+                to: "/boardingplan",
+                menu: [],
+              }
+            ],
+          }
+        ],
+      }
+    ],
+  },
   {
     name: "Discuss",
     subject: "Discuss",
@@ -26,211 +120,6 @@ export const apps: AppItemType[] = [
         name: "Discuss",
         to: "/discuss",
         menu: [],
-      },
-    ],
-  },
-  {
-    name: "Employees",
-    subject: "Employee",
-    icon: "tower",
-    class: "me-2 text-danger",
-    tags: ["employees", "departments", "configuration"],
-    menu: [
-      {
-        name: "Employees",
-        subject: "Employee",
-        to: "/employees",
-        menu: [],
-      },
-      {
-        name: "Departments",
-        subject: "Department",
-        to: "/departments",
-        menu: [],
-      },
-      {
-        name: "Configuration",
-        subject: "Configuration",
-        to: "/configuration",
-        menu: [],
-      },
-      {
-        name: "Settings",
-        subject: "Site",
-        menu: [
-          {
-            name: "Site Settings",
-            subject: "Site",
-            menu: [
-              {
-                name: "Site Types",
-                subject: "SiteType",
-                to: "/sitetypes",
-              },
-              {
-                name: "Site Sub-Types",
-                subject: "SiteSubType",
-                to: "/sitesubtypes",
-              },
-              {
-                name: "Site Topologies",
-                subject: "SiteTypology",
-                to: "/sitetypologies",
-              },
-              {
-                name: "Site Activity Status",
-                subject: "SiteStatus",
-                to: "/sitestatus",
-              },
-              {
-                name: "Site Equipment Housing",
-                subject: "SiteEquipmentHousing",
-                to: "/siteequipments",
-              },
-              {
-                name: "Power System Configurations",
-                subject: "PowerConfig",
-                to: "/powerconfigs",
-              },
-              {
-                name: "Power Source Responsibilities",
-                subject: "PowerResponse",
-                to: "/powerresponses",
-              },
-              {
-                name: "Has Remote Manag. System Options",
-                subject: "RemoteSystem",
-                to: "/remotesystems",
-              },
-              {
-                name: "Site TRM Categories",
-                subject: "TrmCategory",
-                to: "/trmcategories",
-              },
-              {
-                name: "Transmission Link Types",
-                subject: "TrmType",
-                to: "/trmtypes",
-              },
-              {
-                name: "TCH Availability Ranks",
-                subject: "TchRank",
-                to: "/tchranks",
-              },
-              {
-                name: "Value Based Ranks (VBS)",
-                subject: "ValueRank",
-                to: "/valueranks",
-              },
-              {
-                name: "Has Security Gaurd Options",
-                subject: "HasGuard",
-                to: "/hasguards",
-              },
-              {
-                name: "Fencing Types",
-                subject: "FenceType",
-                to: "/fencetypes",
-              },
-              {
-                name: "Has Site Operator Options",
-                subject: "HasOperator",
-                to: "/hasoperators",
-              },
-              {
-                name: "Landlord Categories",
-                subject: "PropertyType",
-                to: "/propertytypes",
-              },
-            ],
-          },
-          {
-            name: "Location Settings",
-            subject: "Location",
-            menu: [
-              {
-                name: "Countries",
-                subject: "Country",
-                to: "/countries",
-              },
-              {
-                name: "States",
-                subject: "State",
-                to: "/states",
-              },
-              {
-                name: "Localities",
-                subject: "Locality",
-                to: "/localities",
-              },
-              {
-                name: "Cities",
-                subject: "City",
-                to: "/cities",
-              },
-              // {
-              //   name: 'Towns',
-              //   subject: 'Town',
-              //   to: '/towns',
-              // },
-              // {
-              //   name: 'Hays',
-              //   subject: 'Hay',
-              //   to: '/hays',
-              // },
-              // {
-              //   name: 'Regions',
-              //   to: '/regions',
-              // },
-              {
-                name: "Zones",
-                subject: "Zone",
-                to: "/zones",
-              },
-              {
-                name: "FM Office",
-                subject: "Office",
-                to: "/offices",
-              },
-              {
-                name: "Clusters",
-                subject: "Cluster",
-                to: "/clusters",
-              },
-              {
-                name: "Population Densities",
-                subject: "PopDensity",
-                to: "/popdensities",
-              },
-            ],
-          },
-          {
-            name: "Attribute Settings",
-            subject: "SiteAttribute",
-            menu: [
-              {
-                name: "Attributes",
-                subject: "SiteAttribute",
-                to: "/attrs",
-              },
-              {
-                name: "Attribute Categories",
-                subject: "SiteAttributeCategory",
-                to: "/attrcategories",
-              },
-              {
-                name: "Attribute Types",
-                subject: "SiteAttrType",
-                to: "/attrtypes",
-              },
-              {
-                name: "Unit Of Meatures",
-                subject: "Uom",
-                to: "/uoms",
-              },
-            ],
-          },
-        ],
       },
     ],
   },

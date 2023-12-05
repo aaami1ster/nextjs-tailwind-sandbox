@@ -1,20 +1,23 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 // import { BiWorld } from "react-icons/bi";
 
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { IoAppsSharp } from "react-icons/io5";
+import { AppContext } from "@/context/AppContext";
+import { apps } from "@/apps";
 
-const apps = [
-  { id: 1, label: 'Discuss', icon: "fi fi-sa", route: "/" },
-  { id: 2, label: 'Employees', icon: "fi fi-gb", route: "/employees" },
-  { id: 3, label: 'Apps', icon: "fi fi-gb", route: "/employees" },
-  { id: 4, label: 'Settings', icon: "fi fi-gb", route: "/employees" },
-];
+// const apps = [
+//   { id: 1, label: 'Discuss', icon: "fi fi-sa", route: "/" },
+//   { id: 2, label: 'Employees', icon: "fi fi-gb", route: "/employees" },
+//   { id: 3, label: 'Apps', icon: "fi fi-gb", route: "/employees" },
+//   { id: 4, label: 'Settings', icon: "fi fi-gb", route: "/employees" },
+// ];
 type Props = {};
 
 const AppsSelectBox = (props: Props) => {
+  const { setCurrentApp } = useContext(AppContext);
   const [open, setOpen] = useState(false);
 
   return (
@@ -24,7 +27,7 @@ const AppsSelectBox = (props: Props) => {
           onClick={() => setOpen((prev) => !prev)}
           className="p-2 cursor-pointer"
         >
-          <IoAppsSharp className="text-secondary hover:text-white text-2xl cursor-pointer"/>
+          <IoAppsSharp className="text-secondary hover:text-white text-2xl cursor-pointer" />
         </div>
         <div
           className={`flex flex-col bg-white w-40 transition-all duration-200 overflow-hidden ${
@@ -33,17 +36,22 @@ const AppsSelectBox = (props: Props) => {
         >
           {apps.map((item) => (
             <div
-              key={item.id}
+              key={`${item.name}`}
               onClick={() => {
                 setOpen(false);
               }}
-              className={`flex justify-center items-center gap-x-2 px-2 py-1 hover:bg-sky-300 cursor-pointer`}
+              className={`flex justify-center items-center gap-x-2 px-2 py-1 hover:bg-black-rgba focus:bg-black-rgba cursor-pointer`}
             >
-              <div className="flex flex-row min-w-[10rem]">
-                <Link href={item.route} className="pl-5 pr-5">{item.label}</Link>
-                {/* <span className={item.icon}></span> */}
+              <div
+                className="flex flex-row min-w-[10rem]"
+                onClick={() => {
+                  console.log(item);
+                  setCurrentApp(item);
+                  
+                }}
+              >
+                <span className="pl-5 pr-5">{item.name}</span>
               </div>
-              {/* <Link href={item.route}><span className={item.icon}></span></Link> */}
             </div>
           ))}
         </div>
