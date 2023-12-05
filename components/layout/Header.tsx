@@ -16,7 +16,7 @@ const Header = (props: HeaderProps) => {
   const { toggle } = useContext(MenuContext);
   const { currentApp } = useContext(AppContext);
   return (
-    <div className="bg-primary flex justify-between items-start h-10 mb-4 text-secondary sticky top-0">
+    <div className="bg-primary flex justify-between items-center h-10 text-secondary sticky top-0">
       <div className="flex justify-center items-center gap-3">
         <AppsSelectBox />
         <h1 className="text-[1.4rem]">
@@ -26,14 +26,18 @@ const Header = (props: HeaderProps) => {
           {currentApp.menu.map((item: any, key: number) => {
             if (!item.menu || item.menu.length <= 0) {
               return (
-                <Link key={key} href={item.to} className="flex justify-content cursor-pointer hover:bg-black-rgba items-center h-full px-2">
+                <Link
+                  key={key}
+                  href={item.to}
+                  className="flex justify-content cursor-pointer hover:bg-black-rgba items-center h-full px-2"
+                >
                   {item.name}
                 </Link>
               );
             }
             return (
               <MenuSelectBox key={key} title={item.name} menu={item.menu} />
-            )
+            );
           })}
         </div>
       </div>
@@ -41,10 +45,8 @@ const Header = (props: HeaderProps) => {
       <div>
         <div className="flex justify-center items-center gap-3">
           <LanguageSelectBox />
-          <FaBars onClick={toggle} className="lg:hidden cursor-pointer" />
-          <div>
-            <UserAreaSelectBox />
-          </div>
+          {/* <FaBars onClick={toggle} className="lg:hidden cursor-pointer" /> */}
+          <UserAreaSelectBox />
         </div>
       </div>
     </div>

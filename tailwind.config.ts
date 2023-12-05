@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors: {
         'primary': '#71639e',
+        'primary-hover': '#605486',
         'secondary': 'rgba(255, 255, 255, 0.9)',
         'black-rgba': 'rgba(0, 0, 0, 0.08)',
       }

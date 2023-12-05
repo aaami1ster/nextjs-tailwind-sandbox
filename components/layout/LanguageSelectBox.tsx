@@ -34,7 +34,7 @@ const LanguageSelectBox = (props: Props) => {
               onClick={() => {
                 setOpen(false);
               }}
-              className={`flex justify-center items-center gap-x-2 px-2 py-1 hover:bg-sky-300 cursor-pointer`}
+              className={`flex justify-center items-center gap-x-2 px-2 py-1 hover:bg-black-rgba cursor-pointer`}
             >
               {/* <AiOutlineCheck className={`text-sky-300`} /> */}
               <Link href={item.route}><span className={item.flag}></span></Link>
