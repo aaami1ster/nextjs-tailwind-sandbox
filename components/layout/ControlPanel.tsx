@@ -2,11 +2,12 @@
 
 import React from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import MySelectBox from "./MySelectBox";
+import { FaChevronLeft, FaChevronRight, FaLayerGroup, FaStar } from "react-icons/fa";
 
-type ControlPanelProps = {
-  children: React.ReactNode;
-};
+import FiltersDropDown from "./FiltersDropDown";
+import GroupByDropDown from "./GroupByDropDown";
+
+type ControlPanelProps = {};
 const ControlPanel = () => {
   return (
     <div className="flex flex-col bg-white w-screen">
@@ -48,54 +49,55 @@ const ControlPanel = () => {
           >
             <button
               type="button"
-              className="btn btn-primary o-kanban-button-new bg-primary hover:bg-primary-hover text-white border-primary hover:border-primary-hover font-medium text-base border py-1 px-3 rounded"
+              className="bg-primary hover:bg-primary-hover uppercase text-white border-primary hover:border-primary-hover font-medium text-base border py-1 px-3 rounded"
               accessKey="c"
               data-bounce-button=""
             >
-              NEW
+              New
             </button>
           </div>
         </div>
         <div className="flex flex-grow basis-0 justify-between">
           {/* search options */}
           <div className="btn-group o_search_options flex gap-2" role="search">
-            <MySelectBox title={"Filters"} menu={[]} />
-            <MySelectBox title={"Group By"} menu={[]} />
-            <MySelectBox title={"Favorites"} menu={[]} />
+            {/* <MySelectBox title={"Filters"} menu={[]} /> */}
+            <FiltersDropDown />
+            <GroupByDropDown icon={FaLayerGroup}/>
+            <GroupByDropDown icon={FaStar}/>
           </div>
 
           {/* search pagination */}
-          <div className="" role="search">
+          <div className="flex items-center justify-center pl-1 text-center select-none relative" role="search">
             <nav
-              className="content-center flex gap-2"
+              className="flex items-center gap-2 end-0"
               aria-label="Pager"
             >
-              <span className="o_pager_counter">
-                <span className="o_pager_value d-inline-block border-bottom border-transparent mb-n1">
+              <span className="">
+                <span className="o_pager_value inline-block border-bottom border-transparent mb-n1">
                   1-20
                 </span>
                 <span> / </span>
                 <span className="o_pager_limit">20</span>
               </span>
-              <span className="btn-group" aria-atomic="true">
-                <button
+              <span className="inline-flex relative align-middle text-center" aria-atomic="true">
+                <FaChevronLeft size={12}
                   type="button"
-                  className="fa fa-chevron-left btn btn-secondary o_pager_previous px-2 rounded-start"
+                  // className="btn btn-secondary o_pager_previous px-2 rounded-start"
                   aria-label="Previous"
                   data-tooltip="Previous"
                   tabIndex={-1}
                   data-hotkey="p"
                   disabled
-                ></button>
-                <button
+                />
+                <FaChevronRight size={12}
                   type="button"
-                  className="fa fa-chevron-right btn btn-secondary o_pager_next px-2 rounded-end"
+                  // className="fa fa-chevron-right btn btn-secondary o_pager_next px-2 rounded-end"
                   aria-label="Next"
                   data-tooltip="Next"
                   tabIndex={-1}
                   data-hotkey="n"
                   disabled
-                ></button>
+                />
               </span>
             </nav>
           </div>

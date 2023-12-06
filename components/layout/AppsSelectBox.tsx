@@ -7,6 +7,7 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { IoAppsSharp } from "react-icons/io5";
 import { AppContext } from "@/context/AppContext";
 import { apps } from "@/apps";
+import { MenuContext } from "@/context/MenuContext";
 
 // const apps = [
 //   { id: 1, label: 'Discuss', icon: "fi fi-sa", route: "/" },
@@ -18,20 +19,29 @@ type Props = {};
 
 const AppsSelectBox = (props: Props) => {
   const { setCurrentApp } = useContext(AppContext);
-  const [open, setOpen] = useState(false);
+  const { open, setOpen } = useContext(MenuContext);
 
   return (
     <>
       <div className="flex flex-col justify-content hover:bg-black-rgba items-center relative z-30">
         <div
-          onClick={() => setOpen((prev) => !prev)}
+         onClick={() => {
+          if (!open) {
+            return setOpen('AppsMenu');
+          }
+          if (open === 'AppsMenu') {
+            return setOpen(false);
+          } else {
+            return setOpen('AppsMenu');
+          }
+        }}
           className="p-2 cursor-pointer"
         >
           <IoAppsSharp className="text-secondary hover:text-white text-2xl cursor-pointer" />
         </div>
         <div
           className={`flex flex-col bg-white w-40 transition-all duration-200 overflow-hidden ${
-            open ? "opacity-100 h-auto" : "opacity-0 h-0"
+            open === 'AppsMenu' ? "opacity-100 h-auto" : "opacity-0 h-0"
           } absolute top-10 left-0 shadow-lg text-[#495057]`}
         >
           {apps.map((item) => (
@@ -56,12 +66,6 @@ const AppsSelectBox = (props: Props) => {
           ))}
         </div>
       </div>
-      <div
-        onClick={() => setOpen(false)}
-        className={`bg-gray-100 opacity-50 fixed inset-0 z-0 ${
-          open ? "block" : "hidden"
-        }`}
-      ></div>
     </>
   );
 };

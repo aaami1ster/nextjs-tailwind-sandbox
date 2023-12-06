@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { MenuContext } from "@/context/MenuContext";
 
 const actions = [
   { id: 1, label: "Documentation", route: "/" },
@@ -15,13 +16,22 @@ const actions = [
 type Props = {};
 
 const UserAreaSelectBox = (props: Props) => {
-  const [open, setOpen] = useState(false);
+  const { open, setOpen } = useContext(MenuContext);
 
   return (
     <>
       <div className="flex hover:bg-black-rgba flex-col justify-center items-center z-30">
         <div
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={() => {
+            if (!open) {
+              return setOpen('UserAreaMenu');
+            }
+            if (open === 'UserAreaMenu') {
+              return setOpen(false);
+            } else {
+              return setOpen('UserAreaMenu');
+            }
+          }}
           className="px-2 pt-2 cursor-pointer"
         >
           <div className="flex flex-row items-center justify-between">
@@ -37,7 +47,7 @@ const UserAreaSelectBox = (props: Props) => {
         </div>
         <div
           className={`flex flex-col bg-white w-48 rounded-b-sm transition-all duration-200 overflow-hidden ${
-            open ? "opacity-100 h-auto" : "opacity-0 h-0"
+            open == 'UserAreaMenu' ? "opacity-100 h-auto" : "opacity-0 h-0"
           } absolute top-10 right-0 shadow-lg text-[#495057]`}
         >
           {actions.map((item) =>
@@ -61,12 +71,6 @@ const UserAreaSelectBox = (props: Props) => {
           )}
         </div>
       </div>
-      <div
-        onClick={() => setOpen(false)}
-        className={`bg-gray-100 opacity-50 fixed inset-0 z-0 ${
-          open ? "block" : "hidden"
-        }`}
-      ></div>
     </>
   );
 };

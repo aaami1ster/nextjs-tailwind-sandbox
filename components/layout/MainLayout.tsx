@@ -11,7 +11,7 @@ type MainLayoutProps = {
 const MainLayout = ({ children }: MainLayoutProps) => {
   const { open, setOpen } = useContext(MenuContext);
   return (
-    <div className="bg-gray-100 w-screen min-h-screen">
+    <div className="bg-gray-100 w-screen min-h-screen text-[#495057]">
       <Header />
       <ControlPanel />
       <div className="flex flex-col justify-start items-start">

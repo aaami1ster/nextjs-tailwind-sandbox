@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BiWorld } from "react-icons/bi";
 
 import "/node_modules/flag-icons/css/flag-icons.min.css";
+import { MenuContext } from "@/context/MenuContext";
 
 const languages = [
   { id: 1, flag: "fi fi-sa", route: "/ar" },
@@ -12,20 +13,29 @@ const languages = [
 type Props = {};
 
 const LanguageSelectBox = (props: Props) => {
-  const [open, setOpen] = useState(false);
+  const { open, setOpen } = useContext(MenuContext);
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center relative z-30">
+      <div className="flex flex-col justify-center items-center hover:bg-black-rgba relative z-30">
         <div
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={() => {
+            if (!open) {
+              return setOpen('LanguageMenu');
+            }
+            if (open === 'LanguageMenu') {
+              return setOpen(false);
+            } else {
+              return setOpen('LanguageMenu');
+            }
+          }}
           className="p-2 cursor-pointer"
         >
           <BiWorld className="text-secondary text-2xl cursor-pointer" />
         </div>
         <div
           className={`flex flex-col bg-white w-20 rounded-b-sm transition-all duration-200 overflow-hidden ${
-            open ? "opacity-100 h-auto" : "opacity-0 h-0"
+            open === 'LanguageMenu' ? "opacity-100 h-auto" : "opacity-0 h-0"
           } absolute top-10 right-0  shadow-lg text-[#495057]`}
         >
           {languages.map((item) => (
@@ -42,12 +52,6 @@ const LanguageSelectBox = (props: Props) => {
           ))}
         </div>
       </div>
-      <div
-        onClick={() => setOpen(false)}
-        className={`bg-gray-100 opacity-50 fixed inset-0 z-0 ${
-          open ? "block" : "hidden"
-        }`}
-      ></div>
     </>
   );
 };
