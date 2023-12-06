@@ -9,40 +9,40 @@ type ControlPanelProps = {
 };
 const ControlPanel = () => {
   return (
-    <div className="o_control_panel flex flex-col bg-white w-screen">
+    <div className="flex flex-col bg-white w-screen">
       {/* cp top */}
-      <div className="o_cp_top flex p-2">
+      <div className="flex p-2">
         {/* breadcrump */}
         <div className="flex items-center flex-grow basis-0">
           <h1 className={`text-[#6c757d] text-lg`}>Employees</h1>
         </div>
 
         {/* search */}
-        
+
         <div className="flex items-center flex-grow basis-0">
-        <div className="relative flex flex-1 flex-shrink-0 focus-visible:outline-none">
-          <label htmlFor="search" className="sr-only">
-            Search
-          </label>
-          <input
-            className="peer block w-full border-b border-gray-200 py-[9px] pl-1 text-sm placeholder:text-gray-500 focus-visible:outline-none"
-            placeholder={"Search..."}
-            onChange={(e) => {
-              console.log("changed.");
-              // handleSearch(e.target.value);
-            }}
-            defaultValue={""}
-          />
-          <HiMagnifyingGlass className="absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
-        </div>
+          <div className="relative flex flex-1 flex-shrink-0 focus-visible:outline-none">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <input
+              className="w-full border-b border-gray-200 py-[9px] pl-1 text-sm placeholder:text-gray-500 focus-visible:outline-none"
+              placeholder={"Search..."}
+              onChange={(e) => {
+                console.log("changed.");
+                // handleSearch(e.target.value);
+              }}
+              defaultValue={""}
+            />
+            <HiMagnifyingGlass className="absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+          </div>
         </div>
       </div>
 
       {/* cp bottom */}
-      <div className="o_cp_bottom flex  p-2">
-        <div className="o_cp_bottom_left flex flex-grow basis-0">
+      <div className="flex  p-2">
+        <div className="flex flex-grow basis-0">
           <div
-            className="o_cp_buttons d-flex align-items-baseline"
+            className=""
             role="toolbar"
             aria-label="Main actions"
           >
@@ -56,7 +56,7 @@ const ControlPanel = () => {
             </button>
           </div>
         </div>
-        <div className="o_cp_bottom_right flex flex-grow basis-0 justify-between">
+        <div className="flex flex-grow basis-0 justify-between">
           {/* search options */}
           <div className="btn-group o_search_options flex gap-2" role="search">
             <MySelectBox title={"Filters"} menu={[]} />
@@ -65,9 +65,9 @@ const ControlPanel = () => {
           </div>
 
           {/* search pagination */}
-          <div className="o_cp_pager" role="search">
+          <div className="" role="search">
             <nav
-              className="o_pager align-items-center d-flex gap-2"
+              className="content-center flex gap-2"
               aria-label="Pager"
             >
               <span className="o_pager_counter">

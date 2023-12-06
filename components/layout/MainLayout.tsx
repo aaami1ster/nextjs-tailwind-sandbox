@@ -13,7 +13,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="bg-gray-100 w-screen min-h-screen">
       <Header />
-      {/* <ControlPanel /> */}
+      <ControlPanel />
       <div className="flex flex-col justify-start items-start">
         
         <main className="flex-1">{children}</main>

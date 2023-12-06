@@ -12,8 +12,8 @@ type HeaderProps = {};
 const Header = (props: HeaderProps) => {
   const { currentApp } = useContext(AppContext);
   return (
-    <div>
-    <div className="bg-primary flex justify-between items-center h-10 text-secondary sticky top-0">
+    <>
+    <div className="bg-primary flex justify-between items-center h-10 text-secondary sticky top-0 z-[9999] ">
       <div className="flex justify-center items-center gap-3">
         <AppsSelectBox />
         <h1 className="text-[1.4rem]">
@@ -47,7 +47,7 @@ const Header = (props: HeaderProps) => {
         </div>
       </div>
     </div>
-    </div>
+    </>
   );
 };
 
