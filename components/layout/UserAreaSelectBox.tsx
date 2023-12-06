@@ -19,10 +19,10 @@ const UserAreaSelectBox = (props: Props) => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center relative z-30">
+      <div className="flex hover:bg-black-rgba flex-col justify-center items-center z-30">
         <div
           onClick={() => setOpen((prev) => !prev)}
-          className="p-2 cursor-pointer"
+          className="px-2 pt-2 cursor-pointer"
         >
           <div className="flex flex-row items-center justify-between">
             <Image
@@ -32,13 +32,13 @@ const UserAreaSelectBox = (props: Props) => {
               width={32}
               height={32}
             />
-            <span>Abdalla Misbah</span>
+            <span className="hidden lg:block">Abdalla Misbah</span>
           </div>
         </div>
         <div
-          className={`flex flex-col bg-white w-40 rounded-b-sm transition-all duration-200 overflow-hidden ${
+          className={`flex flex-col bg-white w-48 rounded-b-sm transition-all duration-200 overflow-hidden ${
             open ? "opacity-100 h-auto" : "opacity-0 h-0"
-          } absolute top-11 right-0 shadow-lg text-[#495057]`}
+          } absolute top-10 right-0 shadow-lg text-[#495057]`}
         >
           {actions.map((item) =>
             item.label === "break" ? (

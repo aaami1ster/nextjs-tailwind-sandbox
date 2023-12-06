@@ -1,8 +1,5 @@
 "use client";
 import React, { useContext } from "react";
-import { FaBars } from "react-icons/fa";
-// import { IoAppsSharp } from "react-icons/io5";
-import { MenuContext } from "@/context/MenuContext";
 import UserAreaSelectBox from "./UserAreaSelectBox";
 import LanguageSelectBox from "./LanguageSelectBox";
 import AppsSelectBox from "./AppsSelectBox";
@@ -13,9 +10,9 @@ import Link from "next/link";
 type HeaderProps = {};
 
 const Header = (props: HeaderProps) => {
-  const { toggle } = useContext(MenuContext);
   const { currentApp } = useContext(AppContext);
   return (
+    <div>
     <div className="bg-primary flex justify-between items-center h-10 text-secondary sticky top-0">
       <div className="flex justify-center items-center gap-3">
         <AppsSelectBox />
@@ -45,10 +42,11 @@ const Header = (props: HeaderProps) => {
       <div>
         <div className="flex justify-center items-center gap-3">
           <LanguageSelectBox />
-          {/* <FaBars onClick={toggle} className="lg:hidden cursor-pointer" /> */}
           <UserAreaSelectBox />
+          {/* <UserAreaSelectBox2 /> */}
         </div>
       </div>
+    </div>
     </div>
   );
 };
