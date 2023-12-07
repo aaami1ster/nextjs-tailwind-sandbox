@@ -55,7 +55,7 @@ const GroupByDropDown = (props: Props) => {
   "
           >
             <li className="px-3 py-1 hover:bg-gray-100">
-              <select className="o_input o_generator_menu_field">
+              <select name="group-fields" className="o_input o_generator_menu_field">
                 <option value="message_needaction">Action Needed</option>
                 <option value="active">Active</option>
                 <option value="activity_ids">Activities</option>
@@ -176,7 +176,7 @@ const GroupByDropDown = (props: Props) => {
               </select>
             </li>
             <li className="px-3 py-1 hover:bg-gray-100">
-              <select className="w-full">
+              <select name="group-operators1" className="w-full">
                 <option value="=">is</option>
                 <option value="!=">is not</option>
                 <option value="!=">is set</option>
@@ -185,7 +185,7 @@ const GroupByDropDown = (props: Props) => {
             </li>
             <li className="px-3 py-1 hover:bg-gray-100">
               <span className="w-full">
-                <select className="w-full">
+                <select name="group-operators2" className="w-full">
                   <option value="overdue">Overdue</option>
                   <option value="today">Today</option>
                   <option value="planned">Planned</option>

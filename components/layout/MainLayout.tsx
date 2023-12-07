@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import React, { useContext } from "react";
 import Header from "./Header";
 import ControlPanel from "./ControlPanel";
 import { MenuContext } from "@/context/MenuContext";
+import SearchPanel from "./SearchPanel";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -11,13 +12,14 @@ type MainLayoutProps = {
 const MainLayout = ({ children }: MainLayoutProps) => {
   const { open, setOpen } = useContext(MenuContext);
   return (
-    <div className="bg-gray-100 w-screen min-h-screen text-[#495057]">
+    <div className="flex flex-col bg-gray-100 w-screen min-h-screen text-[#495057]">
       <Header />
       <ControlPanel />
-      <div className="flex flex-col justify-start items-start">
-        
-        <main className="flex-1">{children}</main>
-      </div>
+
+      <main className="flex-1 flex">
+        <SearchPanel />
+        <div className="flex-1">{children}</div>
+      </main>
       <div
         onClick={() => setOpen(false)}
         className={`bg-gray-100 opacity-0 fixed inset-0 z-0 ${

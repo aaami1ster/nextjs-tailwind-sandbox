@@ -3,6 +3,7 @@ import "./globals.css";
 import MainLayout from "@/components/layout/MainLayout";
 import MenuContextProvider from "@/context/MenuContext";
 import AppContextProvider from "@/context/AppContext";
+import { lusitana } from "@/components/fonts";
 
 export const metadata: Metadata = {
   title: "admin panel",
@@ -16,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${lusitana.className} text-sm font-normal text-[#495057]`}>
         <AppContextProvider>
           <MenuContextProvider>
             <MainLayout>{children}</MainLayout>

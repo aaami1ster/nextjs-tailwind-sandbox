@@ -10,7 +10,7 @@ import GroupByDropDown from "./GroupByDropDown";
 type ControlPanelProps = {};
 const ControlPanel = () => {
   return (
-    <div className="flex flex-col bg-white w-screen">
+    <div className="flex flex-col bg-white w-screen border-b border-b-[#dee2e6] border-solid">
       {/* cp top */}
       <div className="flex p-2">
         {/* breadcrump */}
@@ -26,6 +26,7 @@ const ControlPanel = () => {
               Search
             </label>
             <input
+              id="search"
               className="w-full border-b border-gray-200 py-[9px] pl-1 text-sm placeholder:text-gray-500 focus-visible:outline-none"
               placeholder={"Search..."}
               onChange={(e) => {
