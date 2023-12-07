@@ -10,7 +10,7 @@ import GroupByDropDown from "./GroupByDropDown";
 type ControlPanelProps = {};
 const ControlPanel = () => {
   return (
-    <div className="flex flex-col bg-white w-screen border-b border-b-[#dee2e6] border-solid">
+    <div className="flex flex-col bg-white w-screen border-b border-b-[#dee2e6] border-solid z-[99]">
       {/* cp top */}
       <div className="flex p-2">
         {/* breadcrump */}
