@@ -8,6 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'mw576': '576px', // sm
+        // => @media (min-width: 576px) { ... }
+
+        'mw992': '992px', // lg
+        // => @media (min-width: 992px) { ... }
+
+
+        'mw1200': '1200px', // xl
+        // => @media (min-width: 1200px) { ... }
+
+        'mw1400': '1400px', // 2xl
+        // => @media (min-width: 1400px) { ... }
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
