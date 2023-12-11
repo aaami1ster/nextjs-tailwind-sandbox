@@ -1,16 +1,21 @@
+import { employees } from "@/employees";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import React from "react";
 import {
   FaAddressCard,
   FaCircle,
-  FaEdit,
   FaPencilAlt,
   FaTrash,
 } from "react-icons/fa";
 
-type Props = {};
+type Props = { id: string };
 
-const FormView = (props: Props) => {
+const FormView = ({ id }: Props) => {
+  const employee = employees.find((e: any) => e.id === id);
+  if (!employee) {
+    notFound();
+  }
   return (
     <div className="flex flex-col">
       {/* form page */}
@@ -100,7 +105,7 @@ const FormView = (props: Props) => {
                   height={90}
                   className="img img-fluid max-w-[90px] max-h-[90px] align-top border border-solid border-[#dee2e6] h-auto"
                   alt="Binary file"
-                  src={"/image.jpeg"}
+                  src={employee?.imageUrl}
                 />
               </div>
             </div>
@@ -148,7 +153,7 @@ const FormView = (props: Props) => {
                   type="text"
                   autoComplete="off"
                   placeholder="Employee's Name"
-                  value={"Elie Lampert"}
+                  value={employee?.name}
                 />
               </div>
             </h1>
@@ -164,7 +169,7 @@ const FormView = (props: Props) => {
                   type="text"
                   autoComplete="off"
                   placeholder="Job Position"
-                  value={"Marketing and Community Manager"}
+                  value={employee?.jobPosition}
                 />
               </div>
             </h2>
@@ -240,6 +245,7 @@ const FormView = (props: Props) => {
                           "py-[2px] px-1"
                         }
                         type="tel"
+                        value={employee?.workMobile}
                         id="mobile_phone"
                       />
                     </div>
@@ -266,6 +272,7 @@ const FormView = (props: Props) => {
                           "py-[2px] px-1"
                         }
                         type="tel"
+                        value={employee?.workPhone}
                         id="work_phone"
                       />
                       <a
@@ -307,11 +314,12 @@ const FormView = (props: Props) => {
                           "py-[2px] px-1"
                         }
                         type="email"
+                        value={employee?.workEmail}
                         id="work_email"
                       />
                       <a
                         className="ms-3 d-inline-flex align-items-center"
-                        href="mailto:eli.lambert22@example.com"
+                        href={`mailto:${employee?.workPhone}`}
                       >
                         <i
                           className="fa fa-envelope"
@@ -358,6 +366,7 @@ const FormView = (props: Props) => {
                               "hover:border-[#ccc] " +
                               "py-[2px] px-1"
                             }
+                            value={employee?.department}
                             autoComplete="off"
                             id="department_id"
                             placeholder=""
@@ -405,6 +414,7 @@ const FormView = (props: Props) => {
                               "hover:border-[#ccc] " +
                               "py-[2px] px-1"
                             }
+                            value={employee?.jobPosition}
                             autoComplete="off"
                             id="job_id"
                             placeholder=""
@@ -452,6 +462,7 @@ const FormView = (props: Props) => {
                               "hover:border-[#ccc] " +
                               "py-[2px] px-1"
                             }
+                            value={employee?.manager}
                             autoComplete="off"
                             id="parent_id"
                             placeholder=""

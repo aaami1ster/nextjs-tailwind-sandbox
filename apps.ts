@@ -12,6 +12,8 @@ export type AppItemType = {
   class: string;
   tags: string[];
   menu: AppMenuType[];
+
+  to: string; // default app route
 };
 
 export const apps: AppItemType[] = [
@@ -22,6 +24,7 @@ export const apps: AppItemType[] = [
     icon: "tower",
     class: "me-2 text-danger",
     tags: ["employees", "departments", "configuration"],
+    to: '/employees',
     menu: [
       {
         name: "Employees",
@@ -115,6 +118,7 @@ export const apps: AppItemType[] = [
     icon: "bi-house",
     class: "me-2 text-danger",
     tags: ["discuss"],
+    to: '/discuss',
     menu: [
       {
         name: "Discuss",
@@ -128,6 +132,7 @@ export const apps: AppItemType[] = [
     subject: "App",
     icon: "bi-cpu",
     class: "me-2 text-danger",
+    to: '/apps',
     tags: ["apps"],
     menu: [
       {
@@ -144,6 +149,7 @@ export const apps: AppItemType[] = [
     icon: "bi-cpu",
     class: "me-2 text-danger",
     tags: ["settings"],
+    to: '/settings',
     menu: [
       {
         name: "General Settings",

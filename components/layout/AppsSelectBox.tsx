@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+// import Link from "next/link";
 import React, { useContext, useState } from "react";
 // import { BiWorld } from "react-icons/bi";
 
@@ -8,6 +8,7 @@ import { IoAppsSharp } from "react-icons/io5";
 import { AppContext } from "@/context/AppContext";
 import { apps } from "@/apps";
 import { MenuContext } from "@/context/MenuContext";
+import { useRouter } from "next/navigation";
 
 // const apps = [
 //   { id: 1, label: 'Discuss', icon: "fi fi-sa", route: "/" },
@@ -20,6 +21,9 @@ type Props = {};
 const AppsSelectBox = (props: Props) => {
   const { setCurrentApp } = useContext(AppContext);
   const { open, setOpen } = useContext(MenuContext);
+
+  // const pathname = usePathname();
+  const { replace } = useRouter();
 
   return (
     <>
@@ -57,6 +61,7 @@ const AppsSelectBox = (props: Props) => {
                 onClick={() => {
                   console.log(item);
                   setCurrentApp(item);
+                  replace(`${item.to}`);
                   
                 }}
               >
