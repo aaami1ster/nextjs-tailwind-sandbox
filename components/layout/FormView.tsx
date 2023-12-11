@@ -2,12 +2,7 @@ import { employees } from "@/employees";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
-import {
-  FaAddressCard,
-  FaCircle,
-  FaPencilAlt,
-  FaTrash,
-} from "react-icons/fa";
+import { FaAddressCard, FaCircle, FaPencilAlt, FaTrash } from "react-icons/fa";
 
 type Props = { id: string };
 
@@ -135,19 +130,22 @@ const FormView = ({ id }: Props) => {
 
           {/* title */}
           <div className="max-w-[75%] text-[#212529]">
-            <h1 className="flex flex-row min-h-[55px] w-full leading-5 text-[calc(1.35rem + 1.1vw)] font-medium ">
+            <h1
+              className={
+                "flex flex-row min-h-[55px] w-full leading-5 text-[calc(1.35rem + 1.1vw)] font-medium "
+              }
+            >
               {/* <span className="me-2">
                 <div className="o_widget o_widget_hr_employee_chat"></div>
               </span> */}
               {/* o_field_widget o_required_modifier o_field_char */}
-              <div className=" text-[2.6rem] mb-[5px]">
+              <div className={" text-[2.6rem] mb-[5px] w-full"}>
                 <input
                   // o_input
                   className={
-                    " bg-transparent " +
-                    "border-x-0 border-t-0 border-b border-transparent " +
-                    "hover:border-[#71639e] " +
-                    "py-[2px] px-1"
+                    " bg-transparent w-full" +
+                    " py-[2px] px-1 " +
+                    "border-x-0 border-t-0 border-b border-transparent hover:border-[#71639e] "
                   }
                   id="name"
                   type="text"
