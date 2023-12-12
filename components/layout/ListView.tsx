@@ -3,7 +3,7 @@
 import React from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import { employees } from "@/employees";
+import { employees } from "@/data";
 type Props = {};
 
 const ListView = (props: Props) => {

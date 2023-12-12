@@ -1,4 +1,4 @@
-import FormView from "@/components/layout/FormView";
+import FormView from "@/components/layout/forms/FormView";
 import React from "react";
 
 const page = ({ params }: { params: { id: string } }) => {

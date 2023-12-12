@@ -1,4 +1,4 @@
-import FormView from "@/components/layout/FormView";
+import FormView from "@/components/layout/forms/FormView";
 import SearchPanel from "@/components/layout/SearchPanel";
 import React from "react";
 
@@ -9,7 +9,7 @@ const Home = (props: Props) => {
     <>
       {/* <SearchPanel /> */}
       <div className="flex-1">
-        <FormView />
+        {/* <FormView /> */}
       </div>
     </>
   );
