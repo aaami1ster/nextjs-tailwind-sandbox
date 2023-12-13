@@ -50,7 +50,7 @@ const ListControlPanel = () => {
       <div className="flex  p-2">
         <div className="flex flex-grow basis-0">
           <div className="" role="toolbar" aria-label="Main actions">
-            <Button title="New" color="primary" />
+            <Button color="primary">{"New"}</Button>
           </div>
         </div>
         <div className="flex flex-grow basis-0 justify-between">

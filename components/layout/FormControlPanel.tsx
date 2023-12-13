@@ -51,7 +51,7 @@ const FormControlPanel = (props: FormControlPanelProps) => {
             </div> */}
           </div>
           <CPPager />
-          <Button title="New" color="primary" outline={true}/>
+          <Button color="primary" outline={true}>{"New"}</Button>
           {/* <button
             type="button"
             className="bg-primary hover:bg-primary-hover uppercase text-white border-primary hover:border-primary-hover font-medium text-base border py-1 px-3 rounded"

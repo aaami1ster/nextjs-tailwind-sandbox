@@ -24,7 +24,7 @@ const FormView = ({ id }: Props) => {
         {/* status bar */}
         <div className="bg-white relative flex justify-between items-center border-b pl-4">
           <div className="o_statusbar_buttons flex align-items-center content-around flex-wrap">
-            <Button title={'Launch Plan'}/>
+            <Button>{"Launch Plan"}</Button>
           </div>
         </div>
         {/* form sheet */}
@@ -45,6 +45,19 @@ const FormView = ({ id }: Props) => {
         >
           {/* button box */}
           <div className="mb-6 -mt-6 -ml-4 -mr-4 shadow-sm relative text-end">
+            {/* <Button color="secondary" className="">
+              <div className="flex gap-2">
+                <FaAddressCard size={32} className="h-[44px] md:w-[20%]" />
+                <div className="inline-block align-middle font-normal max-w-[70%] pr-[6px] leading-5">
+                  <span className="leading-4">
+                    <div className="o_field_widget o_readonly_modifier o_field_integer">
+                      <span>2</span>
+                    </div>
+                  </span>
+                  <span className="o_stat_text">Contacts</span>
+                </div>
+              </div>
+            </Button> */}
             <button
               className={
                 "h-[44px] md:w-[20%] bg-white " +

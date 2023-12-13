@@ -3,18 +3,16 @@ import React from "react";
 
 type Props = {
   className?: string;
-  title?: string;
   color?: "primary" | "secondary";
   outline?: boolean;
-  Icon?: any;
+  children?: React.ReactNode;
 };
 
 const Button = ({
   className,
-  title = "",
   color = "secondary",
   outline,
-  Icon,
+  children,
 }: Props) => {
   let bgColor = "white";
   let borderColor = "white";
@@ -49,16 +47,6 @@ const Button = ({
     `hover:bg-${bgColorHover}`,
     `hover:text-${txtColorHover}`,
   ];
-  classes.push(
-    ...[
-      `border-${borderColor}`,
-      `bg-${bgColor}`,
-      `text-${txtColor}`,
-      `hover:border-${borderColorHover}`,
-      `hover:bg-${bgColorHover}`,
-      `hover:text-${txtColorHover}`,
-    ]
-  );
   if (outline) {
     classes.push(
       `bg-white`,
@@ -74,8 +62,7 @@ const Button = ({
       className={`${classes.join(" ")} ${className ? className : ""}`}
       data-hotkey="c"
     >
-      {Icon ? <Icon /> : null}
-      <span>{title}</span>
+			{children}
     </button>
   );
 };
