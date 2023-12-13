@@ -4,11 +4,12 @@ import React, { useState } from "react";
 
 type MenuItemProps = { name: string; to?: string; menu?: MenuItemProps[]; }
 type Props = {
+  Icon?: any;
   title: string;
   menu: MenuItemProps[];
 };
 
-const MySelectBox = (props: Props) => {
+const MySelectBox = ({ Icon, title, menu }: Props) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -16,16 +17,19 @@ const MySelectBox = (props: Props) => {
       <div className="flex flex-col justify-center items-center relative z-30">
         <div
           onClick={() => setOpen((prev) => !prev)}
-          className="p-2 cursor-pointer hover:bg-black-rgba"
+          className="p-2 cursor-pointer hover:bg-black-rgba flex items-center gap-1"
         >
-          {props.title}
+          {
+            Icon ? <Icon /> : null
+          }
+          <span>{title}</span>
         </div>
         <div
           className={`flex flex-col bg-white w-40 rounded-b-sm transition-all duration-200 overflow-hidden ${
             open ? "opacity-100 h-auto" : "opacity-0 h-0"
           } absolute top-10 left-0  shadow-lg text-[#495057] overflow-scroll`}
         >
-          {props.menu.map((item: MenuItemProps, key: number) => {
+          {menu.map((item: MenuItemProps, key: number) => {
             if (item.to) {
               return (
                 <div

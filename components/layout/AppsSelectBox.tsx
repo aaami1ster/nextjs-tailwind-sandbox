@@ -39,7 +39,7 @@ const AppsSelectBox = (props: Props) => {
             return setOpen('AppsMenu');
           }
         }}
-          className="p-2 cursor-pointer"
+          className="py-2 px-4 cursor-pointer"
         >
           <IoAppsSharp className="text-secondary hover:text-white text-2xl cursor-pointer" />
         </div>

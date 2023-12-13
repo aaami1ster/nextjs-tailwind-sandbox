@@ -2,13 +2,19 @@
 
 import React from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import { FaChevronLeft, FaChevronRight, FaLayerGroup, FaStar } from "react-icons/fa";
+import {
+  FaChevronLeft,
+  FaChevronRight,
+  FaLayerGroup,
+  FaStar,
+} from "react-icons/fa";
 
 import FiltersDropDown from "./FiltersDropDown";
 import GroupByDropDown from "./GroupByDropDown";
+import Button from "../Button";
 
-type ControlPanelProps = {};
-const ControlPanel = () => {
+type ListControlPanelProps = {};
+const ListControlPanel = () => {
   return (
     <div className="flex flex-col bg-white w-screen border-b border-b-[#dee2e6] border-solid z-[99]">
       {/* cp top */}
@@ -43,19 +49,8 @@ const ControlPanel = () => {
       {/* cp bottom */}
       <div className="flex  p-2">
         <div className="flex flex-grow basis-0">
-          <div
-            className=""
-            role="toolbar"
-            aria-label="Main actions"
-          >
-            <button
-              type="button"
-              className="bg-primary hover:bg-primary-hover uppercase text-white border-primary hover:border-primary-hover font-medium text-base border py-1 px-3 rounded"
-              accessKey="c"
-              data-bounce-button=""
-            >
-              New
-            </button>
+          <div className="" role="toolbar" aria-label="Main actions">
+            <Button title="New" color="primary" />
           </div>
         </div>
         <div className="flex flex-grow basis-0 justify-between">
@@ -63,16 +58,16 @@ const ControlPanel = () => {
           <div className="btn-group o_search_options flex gap-2" role="search">
             {/* <MySelectBox title={"Filters"} menu={[]} /> */}
             <FiltersDropDown />
-            <GroupByDropDown icon={FaLayerGroup}/>
-            <GroupByDropDown icon={FaStar}/>
+            <GroupByDropDown icon={FaLayerGroup} />
+            <GroupByDropDown icon={FaStar} />
           </div>
 
           {/* search pagination */}
-          <div className="flex items-center justify-center pl-1 text-center select-none relative" role="search">
-            <nav
-              className="flex items-center gap-2 end-0"
-              aria-label="Pager"
-            >
+          <div
+            className="flex items-center justify-center pl-1 text-center select-none relative"
+            role="search"
+          >
+            <nav className="flex items-center gap-2 end-0" aria-label="Pager">
               <span className="">
                 <span className="o_pager_value inline-block border-bottom border-transparent mb-n1">
                   1-20
@@ -80,8 +75,12 @@ const ControlPanel = () => {
                 <span> / </span>
                 <span className="o_pager_limit">20</span>
               </span>
-              <span className="inline-flex relative align-middle text-center" aria-atomic="true">
-                <FaChevronLeft size={12}
+              <span
+                className="inline-flex relative align-middle text-center"
+                aria-atomic="true"
+              >
+                <FaChevronLeft
+                  size={12}
                   type="button"
                   // className="btn btn-secondary o_pager_previous px-2 rounded-start"
                   aria-label="Previous"
@@ -90,7 +89,8 @@ const ControlPanel = () => {
                   data-hotkey="p"
                   disabled
                 />
-                <FaChevronRight size={12}
+                <FaChevronRight
+                  size={12}
                   type="button"
                   // className="fa fa-chevron-right btn btn-secondary o_pager_next px-2 rounded-end"
                   aria-label="Next"
@@ -108,4 +108,4 @@ const ControlPanel = () => {
   );
 };
 
-export default ControlPanel;
+export default ListControlPanel;

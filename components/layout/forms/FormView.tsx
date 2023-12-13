@@ -8,6 +8,7 @@ import { FaAddressCard, FaCircle, FaPencilAlt, FaTrash } from "react-icons/fa";
 import FormInput from "./FormInput";
 import FormGroup from "./FormGroup";
 import FormInnerGroup from "./FormInnerGroup";
+import Button from "@/components/Button";
 
 type Props = { id: string };
 
@@ -21,11 +22,9 @@ const FormView = ({ id }: Props) => {
       {/* form page */}
       <div className="relative flex-grow flex-shrink-0 basis-auto bg-[#f8f9fa] border-b border-solid border-b-[#dee2e6]">
         {/* status bar */}
-        <div className="bg-white relative flex justify-between items-center border-b">
-          <div className="o_statusbar_buttons flex align-items-center align-content-around flex-wrap">
-            <button className="btn btn-secondary">
-              <span>Launch Plan</span>
-            </button>
+        <div className="bg-white relative flex justify-between items-center border-b pl-4">
+          <div className="o_statusbar_buttons flex align-items-center content-around flex-wrap">
+            <Button title={'Launch Plan'}/>
           </div>
         </div>
         {/* form sheet */}
@@ -105,7 +104,9 @@ const FormView = ({ id }: Props) => {
                   height={90}
                   className="img img-fluid max-w-[90px] max-h-[90px] align-top border border-solid border-[#dee2e6] h-auto"
                   alt="Binary file"
-                  src={employee?.imageUrl}
+                  src={
+                    employee?.imageUrl ? employee?.imageUrl : "/placehorder.png"
+                  }
                 />
               </div>
             </div>

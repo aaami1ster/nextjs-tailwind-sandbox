@@ -39,6 +39,7 @@ const FormInputLabel = ({ name, label, info }: Props) => {
               <div className="tooltip-arrow" data-popper-arrow></div>
             </div>
             {/* <!-- Padding so you can see the tooltip. --> */}
+            {/* https://benborgers.com/posts/tailwind-tooltip */}
             {/* <div className="p-10">
               <div className="group relative w-max">
                 <button>Click me!</button>

@@ -32,7 +32,7 @@ const UserAreaSelectBox = (props: Props) => {
               return setOpen('UserAreaMenu');
             }
           }}
-          className="px-2 pt-2 cursor-pointer"
+          className="py-2 px-4 cursor-pointer"
         >
           <div className="flex flex-row items-center justify-between">
             <Image
