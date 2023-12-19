@@ -17,7 +17,21 @@ export type AppItemType = {
 };
 
 export const apps: AppItemType[] = [
-  
+  {
+    name: "Countries",
+    subject: "Country",
+    icon: "bi-house",
+    class: "me-2 text-danger",
+    tags: ["countries"],
+    to: '/countries',
+    menu: [
+      {
+        name: "Countries",
+        to: "/countries",
+        menu: [],
+      },
+    ],
+  },
   {
     name: "Employees",
     subject: "Employee",
@@ -158,7 +172,7 @@ export const apps: AppItemType[] = [
         menu: [],
       },
       {
-        name: "Users & companies",
+        name: "Users & countries",
         subject: "User",
         menu: [
           {
@@ -168,9 +182,9 @@ export const apps: AppItemType[] = [
             menu: [],
           },
           {
-            name: "Companies",
-            subject: "Company",
-            to: "/companies",
+            name: "Countries",
+            subject: "Country",
+            to: "/countries",
             menu: [],
           },
         ],

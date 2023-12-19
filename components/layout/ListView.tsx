@@ -1,12 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import { employees } from "@/data";
-type Props = {};
+import { FieldType } from "@/data";
+import { AppContext } from "@/context/AppContext";
+type Props = {
+  fields: FieldType[];
+  data: any[];
+};
 
-const ListView = (props: Props) => {
+const ListView = ({ fields, data }: Props) => {
+  const { currentApp } = useContext(AppContext);
+  // console.log({ fields, data })
   const { replace } = useRouter();
   return (
     <div className="max-h-full relative flex" tabIndex={-1}>
@@ -22,26 +28,17 @@ const ListView = (props: Props) => {
                 <label className="" htmlFor="checkbox-comp-1"></label>
               </div>
             </th>
-            {[
-              "Employee Name",
-              "Work Phone",
-              "Work Email",
-              "Activities",
-              "Next Activity",
-              "Department",
-              "Job Positin",
-              "Manager",
-            ].map((title) => {
+            {fields.map((fld) => {
               return (
                 <th
-                  key={title}
+                  key={fld.name}
                   data-tooltip-delay="1000"
                   tabIndex={-1}
                   className="group px-1 py-3 align-middle relative cursor-pointer max-w-[94px] w-[94px] border-l border-solid border-l-[#dee2e6]"
                 >
                   <div className="flex">
                     <span className="block min-w-0 truncate flex-grow-1  pe-2">
-                      {title}
+                      {fld.label}
                     </span>
                     <FaAngleDown className="opacity-0 group-hover:opacity-75" />
                   </div>
@@ -168,14 +165,14 @@ const ListView = (props: Props) => {
           </tr>
         </thead>
         <tbody>
-          {employees.map((employee, index) => {
+          {data && data.map((item, index) => {
             return (
               <tr
-                key={employee.id}
+                key={item.id ? item.id : item.code}
                 className=" border-b-[1px] cursor-pointer hover:bg-[#0000000e]"
                 data-id={`datapoint_${index}`}
                 onClick={() => {
-                  replace(`/employees/${employee.id}`);
+                  replace(`${currentApp.to}/${item.id ? item.id : item.code}`);
                 }}
               >
                 <td className=" pl-4 w-10" tabIndex={-1}>
@@ -191,16 +188,22 @@ const ListView = (props: Props) => {
                     ></label>
                   </div>
                 </td>
-                <td
-                  className="truncate max-w-[94px] w-[94px]"
-                  data-tooltip-delay="1000"
-                  tabIndex={-1}
-                  data-tooltip={employee.name}
-                  title=""
-                >
-                  {employee.name}
-                </td>
-                <td
+                {fields.map((fld) => {
+                  return (
+                    <td
+                      key={fld.name}
+                      className="truncate max-w-[94px] w-[94px]"
+                      data-tooltip-delay="1000"
+                      tabIndex={-1}
+                      data-tooltip={item[fld.name]}
+                      title=""
+                    >
+                      {item[fld.name]}
+                    </td>
+                  );
+                })}
+
+                {/* <td
                   className="truncate max-w-[94px] w-[94px]"
                   data-tooltip-delay="1000"
                   tabIndex={-1}
@@ -265,7 +268,7 @@ const ListView = (props: Props) => {
                   data-tooltip={employee.manager}
                 >
                   {employee.manager}
-                </td>
+                </td> */}
                 <td tabIndex={-1}></td>
               </tr>
             );

@@ -4,9 +4,9 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 import { FaAddressCard, FaCircle, FaPencilAlt, FaTrash } from "react-icons/fa";
-import FormInput from "./FormInput";
-import FormGroup from "./FormGroup";
-import FormInnerGroup from "./FormInnerGroup";
+import FormInput from "@/components/layout/forms/FormInput";
+import FormGroup from "@/components/layout/forms/FormGroup";
+import FormInnerGroup from "@/components/layout/forms/FormInnerGroup";
 import Button from "@/components/Button";
 
 type Props = { data: any };

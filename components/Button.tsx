@@ -41,18 +41,27 @@ const Button = ({
     `py-1 px-3`,
     `rounded`,
     `border-${borderColor}`,
+    `hover:border-${borderColorHover}`,
+    `hover:text-${txtColorHover}`,
+
     `bg-${bgColor}`,
     `text-${txtColor}`,
-    `hover:border-${borderColorHover}`,
     `hover:bg-${bgColorHover}`,
-    `hover:text-${txtColorHover}`,
   ];
   if (outline) {
-    classes.push(
-      `bg-white`,
+    classes = [
+      `border`,
+      `uppercase  font-medium text-base`,
+      `py-1 px-3`,
+      `rounded`,
+      `border-${borderColor}`,
+      `hover:border-${borderColorHover}`,
+      `hover:text-${txtColorHover}`,
+
+      `bg-whilte`,
       `text-${bgColor}`,
-      `hover:bg-${bgColor} hover:text-white`
-    );
+      `hover:bg-${bgColor}`,
+    ];
   }
 
   console.log(`${color}: `, clsx(...classes));

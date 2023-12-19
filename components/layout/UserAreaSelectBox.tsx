@@ -36,7 +36,7 @@ const UserAreaSelectBox = (props: Props) => {
         >
           <div className="flex flex-row items-center justify-between">
             <Image
-              src={"/image.jpeg"}
+              src={"/1.jpeg"}
               alt={`'s profile picture`}
               className="mr-2 rounded-full"
               width={32}

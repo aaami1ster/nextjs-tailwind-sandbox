@@ -5,7 +5,7 @@ export type FieldType = {
   info?: string;
   value?: string;
   type: "text" | "tel" | "email" | "select" | "select_many";
-  model?: 'Employee' | 'Department' | 'JobPosition'; 
+  model?: "Employee" | "Department" | "JobPosition" | "Country";
 };
 
 export const employees: {
@@ -76,4 +76,4 @@ export const jobPositions: { id: string; name: string }[] = [
   { id: "5", name: "Chief Technical Officer" },
   { id: "6", name: "Human Resources Manager" },
   { id: "7", name: "Trainee" },
-]
+];
