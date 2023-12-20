@@ -1,14 +1,16 @@
 import FormControlPanel from "@/components/layout/FormControlPanel";
-import FormView from "@/components/layout/forms/FormView";
+import EmployeeFormView from "./EmployeeFormView";
 import React from "react";
+import { employees } from "@/data";
 
 const page = ({ params }: { params: { id: string } }) => {
   const id = params.id;
+  const employee = employees.find((e) => e.id === id);
   return (
     <>
       <FormControlPanel />
       <main className="flex-1">
-          <FormView id={id} />
+          <EmployeeFormView data={employee}/>
       </main>
     </>
   );

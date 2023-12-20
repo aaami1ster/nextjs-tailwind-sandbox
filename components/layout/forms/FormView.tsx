@@ -1,20 +1,36 @@
 "use client";
 
 import Image from "next/image";
-import { notFound } from "next/navigation";
-import React from "react";
+import { notFound, usePathname } from "next/navigation";
+import React, { useContext, useEffect } from "react";
 import { FaAddressCard, FaCircle, FaPencilAlt, FaTrash } from "react-icons/fa";
 import FormInput from "./FormInput";
 import FormGroup from "./FormGroup";
 import FormInnerGroup from "./FormInnerGroup";
 import Button from "@/components/Button";
+import { AppContext } from "@/context/AppContext";
 
 type Props = { data: any };
 
 const FormView = ({ data }: Props) => {
+  const { currentPathname, setCurrentPathname } = useContext(AppContext);
+  const pathname = usePathname();
+  
   if (!data) {
     notFound();
   }
+
+  useEffect(() => {
+    if (currentPathname !== pathname) {
+      // args.flatFilters = [];
+      // args.flatInput = [];
+      // args.page = 1;
+      // args.groupByValue = null;
+      setCurrentPathname(pathname);
+    }
+  }, [currentPathname, pathname, setCurrentPathname])
+  
+
   return (
     <div className="flex flex-col">
       {/* form page */}
@@ -84,67 +100,6 @@ const FormView = ({ data }: Props) => {
             </button>
           </div>
 
-          {/* avatar */}
-          <div className="flex items-start absolute top-[60px] right-[10px]">
-            <div className="relative m-0">
-              <div className="inline-block relative group">
-                <div
-                  aria-atomic="true"
-                  className="flex justify-between absolute w-full bottom-0 opacity-0 group-hover:opacity-100"
-                >
-                  <span className="contents">
-                    <button
-                      className=" inline-block font-medium leading-6 border-0 rounded-[50%] m-1 p-1 w-[26px] h-[26px] cursor-pointer text-[#495057] bg-white"
-                      data-tooltip="Edit"
-                      aria-label="Edit"
-                    >
-                      <FaPencilAlt className=" text-center w-5" />
-                    </button>
-                  </span>
-                  <button
-                    className="inline-block font-medium leading-6 border-0 rounded-[50%] m-1 p-1 w-[26px] h-[26px] cursor-pointer text-center align-middle text-[#495057] bg-white"
-                    data-tooltip="Clear"
-                    aria-label="Clear"
-                  >
-                    <FaTrash className=" text-center w-4" />
-                  </button>
-                  <input type="file" className="hidden" accept="image/*" />
-                </div>
-                <Image
-                  width={90}
-                  height={90}
-                  className="img img-fluid max-w-[90px] max-h-[90px] align-top border border-solid border-[#dee2e6] h-auto"
-                  alt="Binary file"
-                  src={
-                    data?.imageUrl ? data?.imageUrl : "/placehorder.png"
-                  }
-                />
-              </div>
-            </div>
-            <div
-              id="hr_presence_status"
-              className={
-                "flex items-end " +
-                "absolute -top-[5px] -right-[5px] rounded-[50%] bg-white h-4 w-4 "
-              }
-            >
-              {/* <small
-                role="img"
-                className="fa fa-fw fa-circle text-warning o_button_icon hr_presence"
-                aria-label="To define"
-                title="To define"
-              /> */}
-              <FaCircle
-                className={
-                  "text-center text-[#ffac00] " + // text-warning
-                  "" + // o_button_icon
-                  "" + // hr_presence
-                  "align-middle"
-                }
-              />
-            </div>
-          </div>
-
           {/* title */}
           <div className="max-w-[75%] text-[#212529]">
             <h1
@@ -169,61 +124,14 @@ const FormView = ({ data }: Props) => {
                   autoComplete="off"
                   placeholder="Employee's Name"
                   value={data?.name}
+                  onChange={() => console.log('change...')}
                 />
               </div>
             </h1>
-            <h2 className=" min-h-[42px] text-base/[1.2]">
-              <div className="mb-[5px] inline-block w-full">
-                <input
-                  className={
-                    " bg-transparent w-full " +
-                    " border-x-0 border-t-0 border-b border-transparent  " +
-                    " hover:border-[#ccc] " +
-                    " py-[2px] px-1 "
-                  }
-                  type="text"
-                  autoComplete="off"
-                  placeholder="Job Position"
-                  value={data?.jobPosition}
-                />
-              </div>
-            </h2>
-
-            {/* tags */}
-            <div
-              // o_field_widget o_field_many2many_tags
-              className=" mb-[5px]"
-            >
-              <div className="o_field_tags d-inline-flex flex-wrap o_tags_input o_input">
-                <div className="o_field_many2many_selection d-inline-flex w-full">
-                  <div className="o_input_dropdown">
-                    <div className="o-autoComplete dropdown">
-                      <input
-                        type="text"
-                        // className="o-autoComplete--input o_input"
-                        className={
-                          " bg-transparent " +
-                          "border-x-0 border-t-0 border-b border-transparent w-full " +
-                          "hover:border-[#ccc] " +
-                          "py-[2px] px-1"
-                        }
-                        autoComplete="off"
-                        id="category_ids"
-                        placeholder="Tags"
-                      />
-                    </div>
-                    <a
-                      role="button"
-                      className="o_dropdown_button"
-                      draggable="false"
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+          {
 
-          {/* group */}
+          }
           <FormGroup>
             <FormInnerGroup>
               <FormInput
@@ -258,7 +166,7 @@ const FormView = ({ data }: Props) => {
                 label={"Department"}
                 value={data?.department}
                 type={"select"}
-                model={"Department"}
+                subject={"Department"}
                 onchange={() => console.log("changed...")}
                 className="group"
               />
@@ -269,7 +177,7 @@ const FormView = ({ data }: Props) => {
                 label={"Job Position"}
                 value={data?.jobPosition}
                 type={"select"}
-                model={"JobPosition"}
+                subject={"JobPosition"}
                 onchange={() => console.log("changed...")}
                 className="group"
               />
@@ -280,7 +188,7 @@ const FormView = ({ data }: Props) => {
                 label={"Manager"}
                 value={data?.manager}
                 type={"select"}
-                model={"Employee"}
+                subject={"Employee"}
                 onchange={() => console.log("changed...")}
                 className="group"
               />
@@ -293,7 +201,7 @@ const FormView = ({ data }: Props) => {
                 }
                 value={data?.coach}
                 type={"select"}
-                model={"Employee"}
+                subject={"Employee"}
                 onchange={() => console.log("changed...")}
                 className="group"
               />

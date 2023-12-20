@@ -8,7 +8,7 @@ const page = async ({ params }: { params: { id: string } }) => {
   const country = await getCountry(id);
   return (
     <>
-      <FormControlPanel />
+      <FormControlPanel id={country.code} title={country.name} />
       <main className="flex-1">
           <FormView data={country} />
       </main>

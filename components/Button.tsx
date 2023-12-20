@@ -64,7 +64,7 @@ const Button = ({
     ];
   }
 
-  console.log(`${color}: `, clsx(...classes));
+  // console.log(`${color}: `, clsx(...classes));
   return (
     <button
       type="button"

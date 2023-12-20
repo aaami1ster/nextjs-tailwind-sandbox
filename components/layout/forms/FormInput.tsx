@@ -4,9 +4,16 @@ import FormInputInput from "./FormInputInput";
 import FormInputSelect from "./FormInputSelect";
 import FormInputSelectMany from "./FormInputSelectMany";
 import clsx from "clsx";
-import { FieldType } from "@/data";
+import { FieldDefType } from "@/lib/types";
 
-type Props = FieldType & {
+type Props = FieldDefType & {
+  id?: string;
+  name?: string;
+  label?: string;
+  info?: string;
+  subject?: string;
+  value?: string;
+  type?: string;
   onchange: any;
   className?: string;
 };
@@ -16,7 +23,7 @@ const FormInput = ({
   name,
   label,
   info,
-  model,
+  subject,
   value,
   type,
   onchange,
@@ -29,25 +36,27 @@ const FormInput = ({
       <FormInputLabel name={name} label={label} info={info} />
       {type === "select" ? (
         <FormInputSelect
-          id={id}
+          // id={name}
           name={name}
           label={label}
-          model={model}
+          subject={subject}
           value={value}
           type={type}
           onchange={onchange}
         />
       ) : type === "select_many" ? (
         <FormInputSelectMany
+          // id={name}
           name={name}
           label={label}
-          model={model}
+          // subject={subject}
           value={value}
           type={type}
           onchange={onchange}
         />
       ) : (
         <FormInputInput
+          // id={name}
           name={name}
           label={label}
           value={value}

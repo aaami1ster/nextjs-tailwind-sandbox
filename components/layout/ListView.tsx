@@ -3,16 +3,18 @@
 import React, { useContext } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import { FieldType } from "@/data";
 import { AppContext } from "@/context/AppContext";
+import { ConfigProps } from "@/lib/types";
+import { _countryScopedSlots } from "@/app/countries/country.fields";
 type Props = {
-  fields: FieldType[];
+  config: ConfigProps;
   data: any[];
 };
 
-const ListView = ({ fields, data }: Props) => {
+const ListView = ({ config, data }: Props) => {
+  // console.log(_countryScopedSlots)
   const { currentApp } = useContext(AppContext);
-  // console.log({ fields, data })
+  // console.log({ length: data.length })
   const { replace } = useRouter();
   return (
     <div className="max-h-full relative flex" tabIndex={-1}>
@@ -24,11 +26,11 @@ const ListView = ({ fields, data }: Props) => {
               tabIndex={-1}
             >
               <div className="flex">
-                <input type="checkbox" className="" id="checkbox-comp-1" />
+                <input type="checkbox" className="" id="checkbox-comp" defaultValue={""}/>
                 <label className="" htmlFor="checkbox-comp-1"></label>
               </div>
             </th>
-            {fields.map((fld) => {
+            {config.fields.filter((fld) => fld.listView).map((fld) => {
               return (
                 <th
                   key={fld.name}
@@ -181,6 +183,7 @@ const ListView = ({ fields, data }: Props) => {
                       type="checkbox"
                       className="cursor-pointer"
                       id={`checkbox-comp-${index}`}
+                      defaultValue={""}
                     />
                     <label
                       className="form-check-label"
@@ -188,7 +191,7 @@ const ListView = ({ fields, data }: Props) => {
                     ></label>
                   </div>
                 </td>
-                {fields.map((fld) => {
+                {config.fields.filter((fld) => fld.listView).map((fld) => {
                   return (
                     <td
                       key={fld.name}
@@ -198,7 +201,7 @@ const ListView = ({ fields, data }: Props) => {
                       data-tooltip={item[fld.name]}
                       title=""
                     >
-                      {item[fld.name]}
+                      {fld.type === 'text' ? item[fld.name] : _countryScopedSlots && _countryScopedSlots[fld.name] ? _countryScopedSlots[fld.name](item) : ''}
                     </td>
                   );
                 })}

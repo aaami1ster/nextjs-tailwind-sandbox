@@ -1,9 +1,12 @@
 import React from "react";
 import { FaEnvelope, FaMobile, FaPhone } from "react-icons/fa";
 import clsx from "clsx";
-import { FieldType } from "@/data";
+import { FieldDefType } from "@/lib/types";
 
-type Props = FieldType & {
+type Props = FieldDefType & {
+  id?: string;
+  value?: string;
+  subject?: string;
   onchange: any;
   className?: string;
 };
@@ -18,7 +21,7 @@ const FormInputInput = ({ name, value, type, onchange, className }: Props) => {
       )}
     >
       <div
-        id={name}
+        // id={name}
         className={clsx(
           "flex self-start w-full mb-[5px]", // o_field_widget
           { " ": type === "email" }, // o_field_email
@@ -41,7 +44,7 @@ const FormInputInput = ({ name, value, type, onchange, className }: Props) => {
             type={type}
             value={value}
             onChange={onchange}
-            id={name}
+            name={name}
           />
           {type === "email" && value ? (
             <a

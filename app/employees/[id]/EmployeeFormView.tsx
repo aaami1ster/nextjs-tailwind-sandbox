@@ -11,7 +11,7 @@ import Button from "@/components/Button";
 
 type Props = { data: any };
 
-const FormView = ({ data }: Props) => {
+const EmployeeFormView = ({ data }: Props) => {
   if (!data) {
     notFound();
   }
@@ -108,7 +108,7 @@ const FormView = ({ data }: Props) => {
                   >
                     <FaTrash className=" text-center w-4" />
                   </button>
-                  <input type="file" className="hidden" accept="image/*" />
+                  <input id={'image'} type="file" className="hidden" accept="image/*" onChange={() => console.log('change...')}/>
                 </div>
                 <Image
                   width={90}
@@ -169,12 +169,14 @@ const FormView = ({ data }: Props) => {
                   autoComplete="off"
                   placeholder="Employee's Name"
                   value={data?.name}
+                  onChange={() => console.log('change...')}
                 />
               </div>
             </h1>
             <h2 className=" min-h-[42px] text-base/[1.2]">
               <div className="mb-[5px] inline-block w-full">
                 <input
+                  id={'jobPositin'}
                   className={
                     " bg-transparent w-full " +
                     " border-x-0 border-t-0 border-b border-transparent  " +
@@ -185,6 +187,7 @@ const FormView = ({ data }: Props) => {
                   autoComplete="off"
                   placeholder="Job Position"
                   value={data?.jobPosition}
+                  onChange={() => console.log('change...')}
                 />
               </div>
             </h2>
@@ -210,6 +213,7 @@ const FormView = ({ data }: Props) => {
                         autoComplete="off"
                         id="category_ids"
                         placeholder="Tags"
+                        onChange={() => console.log('change...')}
                       />
                     </div>
                     <a
@@ -258,7 +262,7 @@ const FormView = ({ data }: Props) => {
                 label={"Department"}
                 value={data?.department}
                 type={"select"}
-                model={"Department"}
+                subject={"Department"}
                 onchange={() => console.log("changed...")}
                 className="group"
               />
@@ -269,7 +273,7 @@ const FormView = ({ data }: Props) => {
                 label={"Job Position"}
                 value={data?.jobPosition}
                 type={"select"}
-                model={"JobPosition"}
+                subject={"JobPosition"}
                 onchange={() => console.log("changed...")}
                 className="group"
               />
@@ -280,7 +284,7 @@ const FormView = ({ data }: Props) => {
                 label={"Manager"}
                 value={data?.manager}
                 type={"select"}
-                model={"Employee"}
+                subject={"Employee"}
                 onchange={() => console.log("changed...")}
                 className="group"
               />
@@ -293,7 +297,7 @@ const FormView = ({ data }: Props) => {
                 }
                 value={data?.coach}
                 type={"select"}
-                model={"Employee"}
+                subject={"Employee"}
                 onchange={() => console.log("changed...")}
                 className="group"
               />
@@ -305,4 +309,4 @@ const FormView = ({ data }: Props) => {
   );
 };
 
-export default FormView;
+export default EmployeeFormView;

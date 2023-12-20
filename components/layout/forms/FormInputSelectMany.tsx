@@ -1,9 +1,10 @@
 import React from "react";
 import { FaMobile, FaPhone } from "react-icons/fa";
 import clsx from "clsx";
-import { FieldType } from "@/data";
+import { FieldDefType } from "@/lib/types";
 
-type Props = FieldType & {
+type Props = FieldDefType & {
+  value?: string;
   onchange: any;
 };
 
@@ -16,7 +17,7 @@ const FormInputSelectMany = ({ name, value, type, onchange }: Props) => {
       }
     >
       <div
-        id={name}
+        // id={name}
         className={clsx(
           " flex self-start w-full mb-[5px] ", // o_field_widget
           " ", // o_field_email
@@ -39,7 +40,8 @@ const FormInputSelectMany = ({ name, value, type, onchange }: Props) => {
             type={type}
             value={value}
             onChange={onchange}
-            id={name}
+            name={name}
+            defaultValue={""}
           />
           {type === "email" ? (
             <a

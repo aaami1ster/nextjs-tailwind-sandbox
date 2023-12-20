@@ -12,16 +12,19 @@ import {
 import FiltersDropDown from "./FiltersDropDown";
 import GroupByDropDown from "./GroupByDropDown";
 import Button from "../Button";
+import { ConfigProps } from "@/lib/types";
+import Breadcrumb from "../Breadcrumb";
 
-type ListControlPanelProps = {};
-const ListControlPanel = () => {
+type Props = { config: ConfigProps };
+const ListControlPanel = ({ config }: Props) => {
   return (
     <div className="flex flex-col bg-white w-screen border-b border-b-[#dee2e6] border-solid z-[99]">
       {/* cp top */}
       <div className="flex p-2">
         {/* breadcrump */}
         <div className="flex items-center flex-grow basis-0">
-          <h1 className={`text-[#6c757d] text-lg`}>Employees</h1>
+          <Breadcrumb />
+          {/* <h1 className={`text-[#6c757d] text-lg`}>Employees</h1> */}
         </div>
 
         {/* search */}

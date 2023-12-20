@@ -18,7 +18,7 @@ export type AppItemType = {
 
 export const apps: AppItemType[] = [
   {
-    name: "Countries",
+    name: "Country",
     subject: "Country",
     icon: "bi-house",
     class: "me-2 text-danger",

@@ -1,9 +1,10 @@
+import { ConfigProps } from "@/lib/types";
 import React from "react";
 import { FaUsers } from "react-icons/fa";
 
-type Props = {};
+type Props = { config: ConfigProps; };
 
-const SearchPanel = (props: Props) => {
+const SearchPanel = ({ config }: Props) => {
   return (
     <div className="w-[200px] bg-white ps-6 pb-12 pe-2 shrink-0 grow-0 border-r border-r-[#dee2e6] border-solid text-[1em]">
       <section className="relative">

@@ -1,13 +1,3 @@
-export type FieldType = {
-  id?: string;
-  name: string;
-  label: string;
-  info?: string;
-  value?: string;
-  type: "text" | "tel" | "email" | "select" | "select_many";
-  model?: "Employee" | "Department" | "JobPosition" | "Country";
-};
-
 export const employees: {
   id: string;
   name: string;

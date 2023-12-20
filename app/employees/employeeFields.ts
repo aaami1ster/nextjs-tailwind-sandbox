@@ -1,12 +1,12 @@
-import { FieldType } from "@/data";
+import { FieldDefType } from "@/lib/types";
 
-export const employeeFields: FieldType[] = [
+export const employeeFields: FieldDefType[] = [
   {
     name: "id",
     label: "ID",
     // info: "",
     type: "text", //"text" | "tel" | "email" | "select" | "select_many";
-    // model: "", // "Employee" | "Department" | "JobPosition" | "Country";
+    // subject: "", // "Employee" | "Department" | "JobPosition" | "Country";
   },
   {
     name: "name",

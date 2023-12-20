@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { FaArrowRight } from "react-icons/fa";
-import { FieldType, departments, employees, jobPositions } from "@/data";
+import { FieldDefType } from "@/lib/types";
+import {  departments, employees, jobPositions } from "@/data";
 
-type Props = FieldType & {
+type Props = FieldDefType & {
+  id?: string;
+  value?: string;
+  subject?: string;
   onchange: any;
 };
 
-const FormInputSelect = ({ id, name, value, model, type, onchange }: Props) => {
+const FormInputSelect = ({ id, name, value, subject, type, onchange }: Props) => {
   const [open, setOpen] = useState(false);
   let list: any[] = [];
-  switch (model) {
+  switch (subject) {
     case 'Employee':
       list = employees;
       break;
@@ -32,7 +36,7 @@ const FormInputSelect = ({ id, name, value, model, type, onchange }: Props) => {
       )}
     >
       <div
-        id={name}
+        // id={name}
         className={clsx(
           " flex self-start w-full mb-[5px] ", // o_field_widget
           " flex-col inline-flex" // o_field_many2one
@@ -64,7 +68,7 @@ const FormInputSelect = ({ id, name, value, model, type, onchange }: Props) => {
                 onFocus={() => setOpen(true)}
                 onBlur={() => setOpen(false)}
                 autoComplete="off"
-                id={id}
+                name={name}
                 placeholder=""
               />
               {/* style="position: fixed; top: 352.195px; left: 606.805px;" */}
