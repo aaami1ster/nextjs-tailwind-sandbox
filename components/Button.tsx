@@ -14,66 +14,51 @@ const Button = ({
   outline,
   children,
 }: Props) => {
-  let bgColor = "white";
-  let borderColor = "white";
-  let txtColor = "[#66598f]";
-
-  let bgColorHover = "[#F8F9FC]";
-  let borderColorHover = "[#e9ecef]";
-  let txtColorHover = "[#564b79]";
-
   switch (color) {
     case "primary":
-      bgColor = color;
-      borderColor = color;
-      txtColor = "white";
+      return (
+        <button
+          type="button"
+          className={clsx(
+            className,
+            `border uppercase  font-medium text-base py-1 px-3 rounded`,
+            {
+              "bg-primary border-primary text-white": !outline,
+              "bg-white border-primary text-primary": outline,
 
-      bgColorHover = "primary-hover";
-      borderColorHover = "white";
-      txtColorHover = "white";
-      break;
+              "hover:bg-primary-hover hover:border-white hover:text-white": !outline,
+              "hover:bg-primary hover:border-primary hover:text-white": outline,
+            }
+          )}
+          data-hotkey="c"
+          onClick={() => console.log(`${color}: `)}
+        >
+          {children}
+        </button>
+      );
+    case "secondary":
     default:
-      break;
+      return (
+        <button
+          type="button"
+          className={clsx(
+            className,
+            `border uppercase  font-medium text-base py-1 px-3 rounded`,
+            {
+              "bg-white border-white text-[#66598f]": !outline,
+              "bg-[#66598f] border-[#66598f] text-white": outline,
+
+              "hover:bg-[#F8F9FC] hover:border-[#e9ecef] hover:text-[#564b79]": !outline,
+              "hover:bg-white hover:border-white hover:text-[#66598f]": outline,
+            }
+          )}
+          data-hotkey="c"
+          onClick={() => console.log(`${color}: `)}
+        >
+          {children}
+        </button>
+      );
   }
-  let classes: string[] = [
-    `border`,
-    `uppercase  font-medium text-base`,
-    `py-1 px-3`,
-    `rounded`,
-    `border-${borderColor}`,
-    `hover:border-${borderColorHover}`,
-    `hover:text-${txtColorHover}`,
-
-    `bg-${bgColor}`,
-    `text-${txtColor}`,
-    `hover:bg-${bgColorHover}`,
-  ];
-  if (outline) {
-    classes = [
-      `border`,
-      `uppercase  font-medium text-base`,
-      `py-1 px-3`,
-      `rounded`,
-      `border-${borderColor}`,
-      `hover:border-${borderColorHover}`,
-      `hover:text-${txtColorHover}`,
-
-      `bg-whilte`,
-      `text-${bgColor}`,
-      `hover:bg-${bgColor}`,
-    ];
-  }
-
-  // console.log(`${color}: `, clsx(...classes));
-  return (
-    <button
-      type="button"
-      className={`${classes.join(" ")} ${className ? className : ""}`}
-      data-hotkey="c"
-    >
-			{children}
-    </button>
-  );
 };
 
 export default Button;

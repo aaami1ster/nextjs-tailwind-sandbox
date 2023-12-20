@@ -2,19 +2,20 @@ import ListControlPanel from "@/components/layout/ListControlPanel";
 import ListView from "@/components/layout/ListView";
 import SearchPanel from "@/components/layout/SearchPanel";
 import React from "react";
-import { employeeFields } from "./employeeFields";
+import { employeeFields } from "./employee.fields";
 import { employees } from "@/data";
+import employeeConfigs from "./employee.config";
 
 type Props = {};
 
 const page = (props: Props) => {
   return (
     <>
-      <ListControlPanel />
+      <ListControlPanel config={employeeConfigs}/>
       <main className="flex-1 flex">
-        <SearchPanel />
+        <SearchPanel config={employeeConfigs}/>
         <div className="flex-1">
-          <ListView fields={employeeFields} data={employees}/>
+          <ListView config={employeeConfigs} data={employees}/>
         </div>
       </main>
     </>

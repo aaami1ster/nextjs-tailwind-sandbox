@@ -36,7 +36,7 @@ export type DefaultFilterItem = {
 
 export type FieldDefType = {
   name: string;
-  label: string;
+  label?: string;
   type?: string;
   subType?: string;
   queryLabel?: string;
