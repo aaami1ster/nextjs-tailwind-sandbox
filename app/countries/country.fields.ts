@@ -1,21 +1,7 @@
 import { string } from 'yup';
-// import moment from 'moment';
 
-import { FieldDefType, scopedSlotType } from "@/lib/types";
-import { generateScopedSlots } from "@/lib/utils";
+import { FieldDefType } from "@/lib/types";
 
-export const _countryScopedSlots: scopedSlotType = {
-  'continent': (item:any)=>(item.continent && item.continent.name ? item.continent.name : ''),
-  // 'continent': (item:any)=>(item.continent && item.continent.name ? item.continent.name : ''),
-  // 'name': (item:any)=>(item.name ? item.name : ''),
-  // 'code': (item:any)=>(item.code ? item.code : ''),
-  // 'capital': (item:any)=>(item.capital ? item.capital : ''),
-  
-  // 'createdAt': (item: any) => (item.createdAt ? moment(item.createdAt).format() : ''),
-  // 'updatedAt': (item: any) => (item.updatedAt ? moment(item.updatedAt).format() : ''),
-}
-
-export const countryScopedSlots: scopedSlotType = generateScopedSlots(_countryScopedSlots);
 
 
 export const countryFormicInitialValues = {

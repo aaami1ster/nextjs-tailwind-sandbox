@@ -9,12 +9,14 @@ import MySelectBox from "./MySelectBox";
 import { FaCog, FaPrint } from "react-icons/fa";
 import Button from "../Button";
 import CPPager from "../CPPager";
+import { ConfigProps } from "@/lib/types";
 
 type FormControlPanelProps = {
+  config: ConfigProps;
   id: string;
   title: string;
 };
-const FormControlPanel = ({ id, title }: FormControlPanelProps) => {
+const FormControlPanel = ({ config, id, title }: FormControlPanelProps) => {
   return (
     // control_panel
     <div className="flex flex-col bg-white w-screen border-b border-b-[#dee2e6] border-solid z-[99] [&>div]:min-h-[33px] py-2 px-4">

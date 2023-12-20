@@ -5,14 +5,13 @@ import { FaAngleDown } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { AppContext } from "@/context/AppContext";
 import { ConfigProps } from "@/lib/types";
-import { _countryScopedSlots } from "@/app/countries/country.fields";
 type Props = {
   config: ConfigProps;
   data: any[];
 };
 
 const ListView = ({ config, data }: Props) => {
-  // console.log(_countryScopedSlots)
+  // console.log(config.scopedSlots)
   const { currentApp } = useContext(AppContext);
   // console.log({ length: data.length })
   const { replace } = useRouter();
@@ -201,7 +200,7 @@ const ListView = ({ config, data }: Props) => {
                       data-tooltip={item[fld.name]}
                       title=""
                     >
-                      {fld.type === 'text' ? item[fld.name] : _countryScopedSlots && _countryScopedSlots[fld.name] ? _countryScopedSlots[fld.name](item) : ''}
+                      {fld.type === 'text' ? item[fld.name] : config.scopedSlots && config.scopedSlots[fld.name] ? config.scopedSlots[fld.name](item) : ''}
                     </td>
                   );
                 })}

@@ -95,8 +95,8 @@ export type ConfigProps = {
 
   enableActions?: boolean;
 
-  scopedSlots: any;
-  _scopedSlots: any;
+  scopedSlots?: any;
+  // _scopedSlots: any;
   filtersName: string[];
 
   // flatFilters: any[]

@@ -48,29 +48,20 @@ export async function getList(aquery: string) {
   return res;
 }
 
-export async function getCountry(code: string) {
-  console.log("getCountry...");
-  let country: any;
+export async function getOne(aquery: string, variables: any) {
+  console.log("getOne...");
+  let res: any;
 
   try {
     const client = createApolloClient();
     const { data } = await client.query({
-      query: gql`
-        query country($code: ID!) {
-          country(code: $code) {
-            code
-            name
-            currency
-            emoji
-          }
-        }
-      `,
-      variables: { code },
+      query: gql`${aquery}`,
+      variables,
     });
 
-    country = data.country;
-    console.log(data);
+    res = data.data;
+    // console.log(data);
   } catch (error) {}
 
-  return country;
+  return res;
 }

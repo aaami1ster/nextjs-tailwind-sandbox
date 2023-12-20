@@ -2,8 +2,6 @@ import { ConfigProps } from "@/lib/types";
 import {
   countryFields,
   countryParams,
-  countryScopedSlots,
-  _countryScopedSlots,
 } from "./country.fields";
 import {
   createQuery,
@@ -14,6 +12,7 @@ import {
   aggQuery,
   importQuery,
 } from "@/lib/utils";
+import { countryScopedSlots } from "@/lib/scopeSlots";
 
 const countryConfigs: ConfigProps = {
   getListQuery: `
@@ -21,7 +20,11 @@ const countryConfigs: ConfigProps = {
     data:countries {${countryParams.join()}}
   }
 `,
-  getOneQuery: getOneQuery("Country", countryParams),
+  getOneQuery: `
+  query country($code: ID!) {
+    data:country(code: $code) {${countryParams.join()}}
+  }
+`, //getOneQuery("Country", countryParams),
   createQuery: createQuery("Country", countryParams),
   updateQuery: updateQuery("Country", countryParams),
   deleteQuery: "",
@@ -45,9 +48,7 @@ const countryConfigs: ConfigProps = {
   hideCreate: false,
   hideImport: false,
   xlsx: true,
-
-  scopedSlots: 'countryScopedSlots',
-  _scopedSlots: '_countryScopedSlots',
+  scopedSlots: countryScopedSlots,
   filtersName: ["flatFilters"],
 
   // form
