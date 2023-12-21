@@ -82,6 +82,7 @@ const FormView = ({ config, data }: Props) => {
               {config.fields.filter((fld) => fld.name !== 'name' ).map((fld) => {
                 return (
                   <FormInput
+                    key={fld.name}
                     name={fld.name}
                     label={fld.label}
                     value={

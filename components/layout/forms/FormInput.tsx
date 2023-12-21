@@ -33,10 +33,10 @@ const FormInput = ({
     <div
       className={clsx(className || "", "flex mw576:contents flex-column mb-4")}
     >
-      <FormInputLabel name={name} label={label} info={info} />
+      <FormInputLabel id={id} name={name} label={label} info={info} />
       {type === "select" ? (
         <FormInputSelect
-          // id={name}
+          id={id}
           name={name}
           label={label}
           subject={subject}

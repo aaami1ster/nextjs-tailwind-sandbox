@@ -1,16 +1,17 @@
 import React from "react";
 
 type Props = {
+  id?: string;
   name: string;
   label?: string;
   info?: string;
 };
 
-const FormInputLabel = ({ name, label, info }: Props) => {
+const FormInputLabel = ({ id, name, label, info }: Props) => {
   return (
     <div className="o_cell o_wrap_label flex-grow mw576:flex-grow-0 w-full break-words">
       <label
-        // id={name}
+        id={id}
         className=" font-medium mb-[5px] text-base inline-block break-words"
         htmlFor={name}
       >

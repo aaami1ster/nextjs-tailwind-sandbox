@@ -67,13 +67,13 @@ const FormInputInput = ({ name, value, type, onchange, className }: Props) => {
                 )}
                 href={`tel:${value}`}
               >
-                {/* <i className="fa fa-phone"></i> */}
                 <FaPhone />
-                <small className="text-sm font-medium ms-1">Call</small>
+                <small className="break-normal text-sm font-medium ms-1">Call</small>
               </a>
               <a
                 className={clsx(
                   "ms-3 inline-flex items-center",
+                  "text-[#66598f]",
                   "", // o_field_phone_sms
                   "opacity-0 group-hover:opacity-100"
                 )}
@@ -82,7 +82,7 @@ const FormInputInput = ({ name, value, type, onchange, className }: Props) => {
               >
                 {/* <i className="fa fa-mobile"></i> */}
                 <FaMobile />
-                <small className="text-sm font-medium ms-1">SMS</small>
+                <small className="break-normal text-sm font-medium ms-1">SMS</small>
               </a>
             </>
           ) : null}
