@@ -4,8 +4,8 @@ import React, { useContext } from "react";
 import MenuContextProvider from "@/context/MenuContext";
 import AppContextProvider from "@/context/AppContext";
 import { lusitana } from "@/components/fonts";
-import Header from "./Header";
 import { MenuContext } from "@/context/MenuContext";
+import Header from "@/components/layout/Header";
 
 type MainLayoutProps = {
   children: React.ReactNode;

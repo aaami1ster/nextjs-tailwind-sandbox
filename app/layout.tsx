@@ -17,13 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lusitana.className} text-sm font-normal text-[#495057]`}>
-        <AppContextProvider>
-          <MenuContextProvider>
-            <MainLayout>{children}</MainLayout>
-          </MenuContextProvider>
-        </AppContextProvider>
-      </body>
+      {children}
     </html>
   );
 }

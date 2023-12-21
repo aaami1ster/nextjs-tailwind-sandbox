@@ -31,7 +31,7 @@ const FormInput = ({
 }: Props) => {
   return (
     <div
-      className={clsx(className || "", "flex mw576:contents flex-column mb-4")}
+      className={clsx(className, "flex mw576:contents flex-column mb-4")}
     >
       <FormInputLabel id={id} name={name} label={label} info={info} />
       {type === "select" ? (

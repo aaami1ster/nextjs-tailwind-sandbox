@@ -6,7 +6,7 @@ import Breadcrumb from "../Breadcrumb";
 import clsx from "clsx";
 import Dropdown from "../Dropdown";
 import MySelectBox from "./MySelectBox";
-import { FaCog, FaPrint } from "react-icons/fa";
+import { FaCloudUploadAlt, FaCog, FaPrint, FaUndo } from "react-icons/fa";
 import Button from "../Button";
 import CPPager from "../CPPager";
 import { ConfigProps } from "@/lib/types";
@@ -28,7 +28,55 @@ const FormControlPanel = ({ config, id, title }: FormControlPanelProps) => {
             "flex flex-grow items-center"
           )}
         >
-          <Breadcrumb title={title}/>
+          <Breadcrumb title={title} />
+          <div
+            className={clsx(
+              " whitespace-nowrap",
+              "", // o_form_status_indicator
+              "md:flex md:ms-1"
+            )}
+          >
+            <div
+              className={clsx(
+                "", // o_form_status_indicator_buttons
+                "flex"
+              )}
+            >
+              <button
+                type="button"
+                className={clsx(
+                  "",
+                  "", // o_form_button_save
+                  "inline-block font-light text-center align-middle cursor-pointer select-none border border-solid border-transparent py-[0.375rem] px-3 text-xs rounded transition", // btn
+                  " bg-white border-white text-[#495057]", // btn-light
+                  "py-0"
+                )}
+                data-hotkey="s"
+                data-tooltip="Save manually"
+                aria-label="Save manually"
+                title=""
+              >
+                {/* <i className="fa fa-cloud-upload fa-fw"></i> */}
+                <FaCloudUploadAlt />
+              </button>
+              <button
+                type="button"
+                className={clsx(
+                  "", //o_form_button_cancel
+                  "inline-block font-light text-center align-middle cursor-pointer select-none border border-solid border-transparent py-[0.375rem] px-3 text-xs rounded transition", // btn
+                  " bg-white border-white text-[#495057]", // btn-light
+                  "py-0"
+                )}
+                data-hotkey="j"
+                data-tooltip="Discard changes"
+                aria-label="Discard changes"
+                title=""
+              >
+                {/* <i className="fa fa-undo fa-fw"></i> */}
+                <FaUndo />
+              </button>
+            </div>
+          </div>
         </div>
         {/* o_cp_bottom_right */}
         <div
@@ -39,11 +87,26 @@ const FormControlPanel = ({ config, id, title }: FormControlPanelProps) => {
           )}
         >
           <div className="flex">
-          <MySelectBox Icon={FaPrint} title="Print" menu={[{ name: 'Print Badge' }]} />
-          <MySelectBox Icon={FaCog} title="Actions" menu={[{ name: 'Archive' }, { name: 'Duplicate' }, { name: 'Delete' }, { name: 'Create User' }]} />
+            <MySelectBox
+              Icon={FaPrint}
+              title="Print"
+              menu={[{ name: "Print Badge" }]}
+            />
+            <MySelectBox
+              Icon={FaCog}
+              title="Actions"
+              menu={[
+                { name: "Archive" },
+                { name: "Duplicate" },
+                { name: "Delete" },
+                { name: "Create User" },
+              ]}
+            />
           </div>
           <CPPager />
-          <Button color="primary" outline={true}>{"New"}</Button>
+          <Button color="primary" outline={true}>
+            {"New"}
+          </Button>
         </div>
       </div>
     </div>
