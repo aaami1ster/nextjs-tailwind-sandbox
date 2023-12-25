@@ -1,4 +1,4 @@
-import FormControlPanel from "@/components/layout/FormControlPanel";
+import FormControlPanel from "@/components/forms/FormControlPanel";
 import EmployeeFormView from "./EmployeeFormView";
 import React from "react";
 import { employees } from "@/data";

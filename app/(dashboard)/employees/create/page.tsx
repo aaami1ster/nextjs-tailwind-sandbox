@@ -1,11 +1,17 @@
-import React from 'react'
+import FormControlPanel from "@/components/forms/FormControlPanel";
+import React from "react";
+import employeeConfigs from "../employee.config";
+import EmployeeFormView from "../[id]/EmployeeFormView";
 
-type Props = {}
-
-const page = (props: Props) => {
+const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <>
+      <FormControlPanel config={employeeConfigs}/>
+      <main className="flex-1">
+          <EmployeeFormView />
+      </main>
+    </>
+  );
+};
 
-export default page
+export default page;

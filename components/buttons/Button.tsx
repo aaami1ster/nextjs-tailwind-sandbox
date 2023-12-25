@@ -6,12 +6,14 @@ type Props = {
   color?: "primary" | "secondary";
   outline?: boolean;
   children?: React.ReactNode;
+  onClick?: React.MouseEventHandler;
 };
 
 const Button = ({
   className,
   color = "secondary",
   outline,
+  onClick,
   children,
 }: Props) => {
   switch (color) {
@@ -31,7 +33,7 @@ const Button = ({
             }
           )}
           data-hotkey="c"
-          onClick={() => console.log(`${color}: `)}
+          onClick={onClick}
         >
           {children}
         </button>

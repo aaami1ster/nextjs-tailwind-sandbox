@@ -1,17 +1,10 @@
-import FormView from "@/components/layout/forms/FormView";
-import SearchPanel from "@/components/layout/SearchPanel";
 import React from "react";
+import LoginPage from "./login/page";
 
-type Props = {};
 
-const Home = (props: Props) => {
+const Home = () => {
   return (
-    <>
-      {/* <SearchPanel /> */}
-      <div className="flex-1">
-        {/* <FormView /> */}
-      </div>
-    </>
+      <LoginPage />
   );
 };
 

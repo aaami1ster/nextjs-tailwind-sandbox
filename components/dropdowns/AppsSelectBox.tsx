@@ -23,7 +23,7 @@ const AppsSelectBox = (props: Props) => {
   const { open, setOpen } = useContext(MenuContext);
 
   // const pathname = usePathname();
-  const { replace } = useRouter();
+  const { push } = useRouter();
 
   return (
     <>
@@ -61,7 +61,7 @@ const AppsSelectBox = (props: Props) => {
                 onClick={() => {
                   console.log(item);
                   setCurrentApp(item);
-                  replace(`${item.to}`);
+                  push(`${item.to}`);
                   
                 }}
               >

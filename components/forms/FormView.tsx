@@ -5,25 +5,26 @@ import React, { useContext, useEffect } from "react";
 import FormInput from "./FormInput";
 import FormGroup from "./FormGroup";
 import FormInnerGroup from "./FormInnerGroup";
-import Button from "@/components/Button";
+import Button from "@/components/buttons/Button";
 import { AppContext } from "@/context/AppContext";
 import { ConfigProps } from "@/lib/types";
+import { getOne } from "@/lib/api";
 
-type Props = { config: ConfigProps; data: any };
+type Props = { config: ConfigProps; variables: any };
 
-const FormView = ({ config, data }: Props) => {
+const FormView = async({ config, variables }: Props) => {
   const { currentPathname, setCurrentPathname } = useContext(AppContext);
   const pathname = usePathname();
-
+  const data = await getOne(config.getOneQuery, variables);
   if (!data) {
     notFound();
   }
 
-  useEffect(() => {
-    if (currentPathname !== pathname) {
-      setCurrentPathname(pathname);
-    }
-  }, [currentPathname, pathname, setCurrentPathname]);
+  // useEffect(() => {
+  //   if (currentPathname !== pathname) {
+  //     setCurrentPathname(pathname);
+  //   }
+  // }, [currentPathname, pathname, setCurrentPathname]);
 
   return (
     <div className="flex flex-col">

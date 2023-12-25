@@ -9,9 +9,9 @@ const actions = [
   { id: 2, label: "Support", route: "/" },
   { id: 3, label: "Shortcuts", route: "/" },
   { id: 3, label: "break", route: "/" },
-  { id: 4, label: "My Profile", route: "/users/profile" },
+  { id: 4, label: "My Profile", route: "/users/1" },
   { id: 5, label: "My odoo.com account", route: "www.odoo.com" },
-  { id: 6, label: "Log Out", route: "/users/logout" },
+  { id: 6, label: "Log Out", route: "/login" },
 ];
 type Props = {};
 

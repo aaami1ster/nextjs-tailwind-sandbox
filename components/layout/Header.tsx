@@ -1,10 +1,10 @@
 "use client";
 import React, { useContext, useEffect } from "react";
-import UserAreaSelectBox from "./UserAreaSelectBox";
-import LanguageSelectBox from "./LanguageSelectBox";
-import AppsSelectBox from "./AppsSelectBox";
+import UserAreaSelectBox from "@/components/dropdowns/UserAreaSelectBox";
+import LanguageSelectBox from "@/components/dropdowns/LanguageSelectBox";
+import AppsSelectBox from "../dropdowns/AppsSelectBox";
 import { AppContext } from "@/context/AppContext";
-import MenuSelectBox from "./MenuSelectBox";
+import MenuSelectBox from "@/components/dropdowns/MenuSelectBox";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { apps } from "@/apps";

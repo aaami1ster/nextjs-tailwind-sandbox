@@ -1,22 +1,22 @@
 "use client";
 
 import React from "react";
-
-import Breadcrumb from "../Breadcrumb";
+import { useRouter } from 'next/navigation';
 import clsx from "clsx";
-import Dropdown from "../Dropdown";
-import MySelectBox from "./MySelectBox";
+import Breadcrumb from "../Breadcrumb";
+import MySelectBox from "../dropdowns/MySelectBox";
 import { FaCloudUploadAlt, FaCog, FaPrint, FaUndo } from "react-icons/fa";
-import Button from "../Button";
+import Button from "../buttons/Button";
 import CPPager from "../CPPager";
 import { ConfigProps } from "@/lib/types";
 
 type FormControlPanelProps = {
   config: ConfigProps;
-  id: string;
-  title: string;
+  id?: string;
+  title?: string;
 };
 const FormControlPanel = ({ config, id, title }: FormControlPanelProps) => {
+  const { push } = useRouter();
   return (
     // control_panel
     <div className="flex flex-col bg-white w-screen border-b border-b-[#dee2e6] border-solid z-[99] [&>div]:min-h-[33px] py-2 px-4">
@@ -28,7 +28,7 @@ const FormControlPanel = ({ config, id, title }: FormControlPanelProps) => {
             "flex flex-grow items-center"
           )}
         >
-          <Breadcrumb title={title} />
+          <Breadcrumb title={title || 'New'} />
           <div
             className={clsx(
               " whitespace-nowrap",
@@ -103,9 +103,9 @@ const FormControlPanel = ({ config, id, title }: FormControlPanelProps) => {
               ]}
             />
           </div>
-          <CPPager />
-          <Button color="primary" outline={true}>
-            {"New"}
+          { id ? <CPPager /> : null}
+          <Button color="primary" outline={true} onClick={() => push(`${config.path}/create`)}>
+            New
           </Button>
         </div>
       </div>

@@ -1,5 +1,5 @@
-import ListControlPanel from "@/components/layout/ListControlPanel";
-import ListView from "@/components/layout/ListView";
+import ListControlPanel from "@/components/list/ListControlPanel";
+import ListView from "@/components/list/Table";
 import SearchPanel from "@/components/layout/SearchPanel";
 import React from "react";
 import { employeeFields } from "./employee.fields";

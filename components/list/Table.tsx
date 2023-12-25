@@ -14,7 +14,7 @@ const ListView = ({ config, data }: Props) => {
   // console.log(config.scopedSlots)
   const { currentApp } = useContext(AppContext);
   // console.log({ length: data.length })
-  const { replace } = useRouter();
+  const { push } = useRouter();
   return (
     <div className="max-h-full relative flex" tabIndex={-1}>
       <table className=" table-fixed bg-white border-collapse relative flex-1 border-b">
@@ -173,7 +173,7 @@ const ListView = ({ config, data }: Props) => {
                 className=" border-b-[1px] cursor-pointer hover:bg-[#0000000e]"
                 data-id={`datapoint_${index}`}
                 onClick={() => {
-                  replace(`${currentApp.to}/${item.id ? item.id : item.code}`);
+                  push(`${currentApp.to}/${item.id ? item.id : item.code}`);
                 }}
               >
                 <td className=" pl-4 w-10" tabIndex={-1}>

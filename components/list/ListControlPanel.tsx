@@ -8,15 +8,16 @@ import {
   FaLayerGroup,
   FaStar,
 } from "react-icons/fa";
-
-import FiltersDropDown from "./FiltersDropDown";
-import GroupByDropDown from "./GroupByDropDown";
-import Button from "../Button";
+import { useRouter } from 'next/navigation';
+import FiltersDropDown from "@/components/dropdowns/FiltersDropDown";
+import GroupByDropDown from "@/components/dropdowns/GroupByDropDown";
+import Button from "../buttons/Button";
 import { ConfigProps } from "@/lib/types";
 import Breadcrumb from "../Breadcrumb";
 
 type Props = { config: ConfigProps };
 const ListControlPanel = ({ config }: Props) => {
+  const { push } = useRouter();
   return (
     <div className="flex flex-col bg-white w-screen border-b border-b-[#dee2e6] border-solid z-[99]">
       {/* cp top */}
@@ -53,7 +54,7 @@ const ListControlPanel = ({ config }: Props) => {
       <div className="flex  p-2">
         <div className="flex flex-grow basis-0">
           <div className="" role="toolbar" aria-label="Main actions">
-            <Button color="primary">{"New"}</Button>
+            <Button color="primary" onClick={() => push(`${config.path}/create`)}>New</Button>
           </div>
         </div>
         <div className="flex flex-grow basis-0 justify-between">

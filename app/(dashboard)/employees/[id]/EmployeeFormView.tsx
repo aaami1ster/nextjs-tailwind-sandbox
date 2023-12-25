@@ -1,20 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import React from "react";
 import { FaAddressCard, FaCircle, FaPencilAlt, FaTrash } from "react-icons/fa";
-import FormInput from "@/components/layout/forms/FormInput";
-import FormGroup from "@/components/layout/forms/FormGroup";
-import FormInnerGroup from "@/components/layout/forms/FormInnerGroup";
-import Button from "@/components/Button";
+import FormInput from "@/components/forms/FormInput";
+import FormGroup from "@/components/forms/FormGroup";
+import FormInnerGroup from "@/components/forms/FormInnerGroup";
+import Button from "@/components/buttons/Button";
 
-type Props = { data: any };
+type Props = { data?: any };
 
 const EmployeeFormView = ({ data }: Props) => {
-  if (!data) {
-    notFound();
-  }
   return (
     <div className="flex flex-col">
       {/* form page */}
@@ -42,47 +38,36 @@ const EmployeeFormView = ({ data }: Props) => {
           }
         >
           {/* button box */}
-          <div className="mb-6 -mt-6 -ml-4 -mr-4 shadow-sm relative text-end">
-            {/* <Button color="secondary" className="">
-              <div className="flex gap-2">
-                <FaAddressCard size={32} className="h-[44px] md:w-[20%]" />
-                <div className="inline-block align-middle font-normal max-w-[70%] pr-[6px] leading-5">
-                  <span className="leading-4">
-                    <div className="o_field_widget o_readonly_modifier o_field_integer">
-                      <span>2</span>
-                    </div>
-                  </span>
-                  <span className="o_stat_text">Contacts</span>
+          {data ? (
+            <div className="mb-6 -mt-6 -ml-4 -mr-4 shadow-sm relative text-end">
+              <button
+                className={
+                  "h-[44px] md:w-[20%] bg-white " +
+                  "border-b border-solid border-b-[#dee2e6] " +
+                  "border-s border-s-[#dee2e6] " +
+                  "py-[0.375rem] px-3 " +
+                  "mb-0 " +
+                  "inline-block align-middle " +
+                  "flex-shrink-0 " +
+                  "text-start whitespace-nowrap " +
+                  "capitalize " +
+                  ""
+                }
+              >
+                <div className="flex gap-2">
+                  <FaAddressCard size={32} className="" />
+                  <div className="inline-block align-middle font-normal max-w-[70%] pr-[6px] leading-5">
+                    <span className="leading-4">
+                      <div className="o_field_widget o_readonly_modifier o_field_integer">
+                        <span>2</span>
+                      </div>
+                    </span>
+                    <span className="o_stat_text">Contacts</span>
+                  </div>
                 </div>
-              </div>
-            </Button> */}
-            <button
-              className={
-                "h-[44px] md:w-[20%] bg-white " +
-                "border-b border-solid border-b-[#dee2e6] " +
-                "border-s border-s-[#dee2e6] " +
-                "py-[0.375rem] px-3 " +
-                "mb-0 " +
-                "inline-block align-middle " +
-                "flex-shrink-0 " +
-                "text-start whitespace-nowrap " +
-                "capitalize " +
-                ""
-              }
-            >
-              <div className="flex gap-2">
-                <FaAddressCard size={32} className="" />
-                <div className="inline-block align-middle font-normal max-w-[70%] pr-[6px] leading-5">
-                  <span className="leading-4">
-                    <div className="o_field_widget o_readonly_modifier o_field_integer">
-                      <span>2</span>
-                    </div>
-                  </span>
-                  <span className="o_stat_text">Contacts</span>
-                </div>
-              </div>
-            </button>
-          </div>
+              </button>
+            </div>
+          ) : null}
 
           {/* avatar */}
           <div className="flex items-start absolute top-[60px] right-[10px]">
@@ -101,23 +86,29 @@ const EmployeeFormView = ({ data }: Props) => {
                       <FaPencilAlt className=" text-center w-5" />
                     </button>
                   </span>
-                  <button
-                    className="inline-block font-medium leading-6 border-0 rounded-[50%] m-1 p-1 w-[26px] h-[26px] cursor-pointer text-center align-middle text-[#495057] bg-white"
-                    data-tooltip="Clear"
-                    aria-label="Clear"
-                  >
-                    <FaTrash className=" text-center w-4" />
-                  </button>
-                  <input id={'image'} type="file" className="hidden" accept="image/*" onChange={() => console.log('change...')}/>
+                  {data ? (
+                    <button
+                      className="inline-block font-medium leading-6 border-0 rounded-[50%] m-1 p-1 w-[26px] h-[26px] cursor-pointer text-center align-middle text-[#495057] bg-white"
+                      data-tooltip="Clear"
+                      aria-label="Clear"
+                    >
+                      <FaTrash className=" text-center w-4" />
+                    </button>
+                  ) : null}
+                  <input
+                    id={"image"}
+                    type="file"
+                    className="hidden"
+                    accept="image/*"
+                    onChange={() => console.log("change...")}
+                  />
                 </div>
                 <Image
                   width={90}
                   height={90}
                   className="img img-fluid max-w-[90px] max-h-[90px] align-top border border-solid border-[#dee2e6] h-auto"
                   alt="Binary file"
-                  src={
-                    data?.imageUrl ? data?.imageUrl : "/placehorder.png"
-                  }
+                  src={data?.imageUrl ? data?.imageUrl : "/placeholder.png"}
                 />
               </div>
             </div>
@@ -169,14 +160,14 @@ const EmployeeFormView = ({ data }: Props) => {
                   autoComplete="off"
                   placeholder="Employee's Name"
                   value={data?.name}
-                  onChange={() => console.log('change...')}
+                  onChange={() => console.log("change...")}
                 />
               </div>
             </h1>
             <h2 className=" min-h-[42px] text-base/[1.2]">
               <div className="mb-[5px] inline-block w-full">
                 <input
-                  id={'jobPositin'}
+                  id={"jobPositin"}
                   className={
                     " bg-transparent w-full " +
                     " border-x-0 border-t-0 border-b border-transparent  " +
@@ -187,7 +178,7 @@ const EmployeeFormView = ({ data }: Props) => {
                   autoComplete="off"
                   placeholder="Job Position"
                   value={data?.jobPosition}
-                  onChange={() => console.log('change...')}
+                  onChange={() => console.log("change...")}
                 />
               </div>
             </h2>
@@ -213,7 +204,7 @@ const EmployeeFormView = ({ data }: Props) => {
                         autoComplete="off"
                         id="category_ids"
                         placeholder="Tags"
-                        onChange={() => console.log('change...')}
+                        onChange={() => console.log("change...")}
                       />
                     </div>
                     <a
@@ -233,7 +224,7 @@ const EmployeeFormView = ({ data }: Props) => {
               <FormInput
                 name={"workMobile"}
                 label={"Work Mobile"}
-                value={data.workMobile}
+                value={data?.workMobile}
                 type={"tel"}
                 onchange={() => console.log("changed...")}
                 className="group"
@@ -241,7 +232,7 @@ const EmployeeFormView = ({ data }: Props) => {
               <FormInput
                 name={"workPhone"}
                 label={"Work Phone"}
-                value={data.workPhone}
+                value={data?.workPhone}
                 type={"tel"}
                 onchange={() => console.log("changed...")}
                 className="group"
@@ -249,7 +240,7 @@ const EmployeeFormView = ({ data }: Props) => {
               <FormInput
                 name={"workEmail"}
                 label={"Work Email"}
-                value={data.workEmail}
+                value={data?.workEmail}
                 type={"email"}
                 onchange={() => console.log("changed...")}
                 className="group"
