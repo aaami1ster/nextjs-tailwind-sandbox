@@ -1,5 +1,5 @@
 import ListControlPanel from "@/components/list/ListControlPanel";
-import ListView from "@/components/list/Table";
+import Table from "@/components/list/Table";
 import SearchPanel from "@/components/layout/SearchPanel";
 import React from "react";
 import { employeeFields } from "./employee.fields";
@@ -15,7 +15,7 @@ const page = (props: Props) => {
       <main className="flex-1 flex">
         <SearchPanel config={employeeConfigs}/>
         <div className="flex-1">
-          <ListView config={employeeConfigs} data={employees}/>
+          <Table config={employeeConfigs} data={employees}/>
         </div>
       </main>
     </>

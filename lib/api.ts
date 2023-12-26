@@ -39,7 +39,7 @@ export async function getList(aquery: string) {
       query: gql`${aquery}`,
     });
     console.log(data);
-    res = data.data.slice(0, 4);
+    res = data.data.slice(0, 10);
     
   } catch (error) {
     console.error(error);

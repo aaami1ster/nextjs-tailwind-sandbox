@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import FormControlPanel from "@/components/forms/FormControlPanel";
-import FormView from "@/components/forms/FormView";
+import Form from "@/components/forms/Form";
 import { getOne } from "@/lib/api";
 import countryConfigs from "../country.config";
 import { notFound } from "next/navigation";
@@ -20,7 +20,7 @@ const page = async ({ params }: { params: { id: string } }) => {
       />
       <main className="flex-1">
         <Suspense fallback={<div>loading...</div>}>
-          <FormView config={countryConfigs} variables={{ code: id }} />
+          <Form config={countryConfigs} variables={{ code: id }} />
         </Suspense>
       </main>
     </>

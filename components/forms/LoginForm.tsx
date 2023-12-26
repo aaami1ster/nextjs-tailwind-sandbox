@@ -40,7 +40,9 @@ const LoginForm = (props: Props) => {
                 }
               >
                 <div className="flex justify-center pb-4 border-b border-solid border-b-[#dee2e6] mb-4">
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     className="max-h-[120px] max-w-full w-auto align-middle"
                     alt="Logo"
                     src="/company_logo.png"
