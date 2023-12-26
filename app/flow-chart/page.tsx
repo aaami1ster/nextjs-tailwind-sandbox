@@ -1,12 +1,10 @@
-import FlowChart from '@/components/FlowChart'
-import React from 'react'
+import FlowChart from "@/components/FlowChart";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const page = (props: Props) => {
-  return (
-    <FlowChart />
-  )
-}
+  return <FlowChart />;
+};
 
-export default page
+export default page;

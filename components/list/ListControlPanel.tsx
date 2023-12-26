@@ -8,7 +8,7 @@ import {
   FaLayerGroup,
   FaStar,
 } from "react-icons/fa";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import FiltersDropDown from "@/components/dropdowns/FiltersDropDown";
 import GroupByDropDown from "@/components/dropdowns/GroupByDropDown";
 import Button from "../buttons/Button";
@@ -54,7 +54,12 @@ const ListControlPanel = ({ config }: Props) => {
       <div className="flex  p-2">
         <div className="flex flex-grow basis-0">
           <div className="" role="toolbar" aria-label="Main actions">
-            <Button color="primary" onClick={() => push(`${config.path}/create`)}>New</Button>
+            <Button
+              color="primary"
+              onClick={() => push(`${config.path}/create`)}
+            >
+              New
+            </Button>
           </div>
         </div>
         <div className="flex flex-grow basis-0 justify-between">

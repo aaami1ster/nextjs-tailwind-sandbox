@@ -3,8 +3,8 @@ import { gql } from "@apollo/client";
 
 export const getQuery = (
   key: string,
-  params: string[] = ['_id', 'name', 'createdAt', 'updatedAt'],
-  isElkAgg = false,
+  params: string[] = ["_id", "name", "createdAt", "updatedAt"],
+  isElkAgg = false
 ) => {
   // console.log(key)
   return `
@@ -13,20 +13,20 @@ export const getQuery = (
       $listInput: [FilterListObject!],
       $limit: Int!,
       $skip: Int!,
-      ${isElkAgg ? '$after_key: AfterKeyObject,' : ''}
+      ${isElkAgg ? "$after_key: AfterKeyObject," : ""}
       $groupBy: String){
       data:${key}List(
         flatInput: $flatInput,
         listInput: $listInput,
         limit: $limit,
         skip: $skip,
-        ${isElkAgg ? 'after_key: $after_key,' : ''}
+        ${isElkAgg ? "after_key: $after_key," : ""}
         groupBy: $groupBy){
-        data{${params.join()}},  ${isElkAgg ? 'after_key{item}' : ''}, total
+        data{${params.join()}},  ${isElkAgg ? "after_key{item}" : ""}, total
       }
     }
-  `
-}
+  `;
+};
 
 export async function getList(aquery: string) {
   console.log("getList...");
@@ -36,11 +36,12 @@ export async function getList(aquery: string) {
   try {
     const client = createApolloClient();
     const { data } = await client.query({
-      query: gql`${aquery}`,
+      query: gql`
+        ${aquery}
+      `,
     });
     console.log(data);
     res = data.data.slice(0, 10);
-    
   } catch (error) {
     console.error(error);
   }
@@ -55,7 +56,9 @@ export async function getOne(aquery: string, variables: any) {
   try {
     const client = createApolloClient();
     const { data } = await client.query({
-      query: gql`${aquery}`,
+      query: gql`
+        ${aquery}
+      `,
       variables,
     });
 

@@ -25,28 +25,35 @@ const Table = ({ config, data }: Props) => {
               tabIndex={-1}
             >
               <div className="flex">
-                <input type="checkbox" className="" id="checkbox-comp" defaultValue={""}/>
+                <input
+                  type="checkbox"
+                  className=""
+                  id="checkbox-comp"
+                  defaultValue={""}
+                />
                 <label className="" htmlFor="checkbox-comp-1"></label>
               </div>
             </th>
-            {config.fields.filter((fld) => fld.listView).map((fld) => {
-              return (
-                <th
-                  key={fld.name}
-                  data-tooltip-delay="1000"
-                  tabIndex={-1}
-                  className="group px-1 py-3 align-middle relative cursor-pointer max-w-[94px] w-[94px] border-l border-solid border-l-[#dee2e6]"
-                >
-                  <div className="flex">
-                    <span className="block min-w-0 truncate flex-grow-1  pe-2">
-                      {fld.label}
-                    </span>
-                    <FaAngleDown className="opacity-0 group-hover:opacity-75" />
-                  </div>
-                  <span className="cursor-col-resize absolute top-0 end-0 bottom-0 ps-1 bg-[#00000040] opacity-0 hover:opacity-50 z-1"></span>
-                </th>
-              );
-            })}
+            {config.fields
+              .filter((fld) => fld.listView)
+              .map((fld) => {
+                return (
+                  <th
+                    key={fld.name}
+                    data-tooltip-delay="1000"
+                    tabIndex={-1}
+                    className="group px-1 py-3 align-middle relative cursor-pointer max-w-[94px] w-[94px] border-l border-solid border-l-[#dee2e6]"
+                  >
+                    <div className="flex">
+                      <span className="block min-w-0 truncate flex-grow-1  pe-2">
+                        {fld.label}
+                      </span>
+                      <FaAngleDown className="opacity-0 group-hover:opacity-75" />
+                    </div>
+                    <span className="cursor-col-resize absolute top-0 end-0 bottom-0 ps-1 bg-[#00000040] opacity-0 hover:opacity-50 z-1"></span>
+                  </th>
+                );
+              })}
             <th className="w-[32px] min-w-[32px] o_list_controller o_list_actions_header">
               <div className="o-dropdown dropdown o_optional_columns_dropdown text-center border-top-0 o-dropdown--no-caret">
                 <button
@@ -61,48 +68,55 @@ const Table = ({ config, data }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {data && data.map((item, index) => {
-            return (
-              <tr
-                key={item.id ? item.id : item.code}
-                className=" border-b-[1px] cursor-pointer hover:bg-[#0000000e]"
-                data-id={`datapoint_${index}`}
-                onClick={() => {
-                  push(`${currentApp.to}/${item.id ? item.id : item.code}`);
-                }}
-              >
-                <td className=" pl-4 w-10" tabIndex={-1}>
-                  <div className="">
-                    <input
-                      type="checkbox"
-                      className="cursor-pointer"
-                      id={`checkbox-comp-${index}`}
-                      defaultValue={""}
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor={`checkbox-comp-${index}`}
-                    ></label>
-                  </div>
-                </td>
-                {config.fields.filter((fld) => fld.listView).map((fld) => {
-                  return (
-                    <td
-                      key={fld.name}
-                      className="truncate max-w-[94px] w-[94px]"
-                      data-tooltip-delay="1000"
-                      tabIndex={-1}
-                      data-tooltip={item[fld.name]}
-                      title=""
-                    >
-                      {fld.type === 'text' ? item[fld.name] : config.scopedSlots && config.scopedSlots[fld.name] ? config.scopedSlots[fld.name](item) : ''}
-                    </td>
-                  );
-                })}
-                <td tabIndex={-1}></td>
-              </tr>
-            );
-          })}
+          {data &&
+            data.map((item, index) => {
+              return (
+                <tr
+                  key={item.id ? item.id : item.code}
+                  className=" border-b-[1px] cursor-pointer hover:bg-[#0000000e]"
+                  data-id={`datapoint_${index}`}
+                  onClick={() => {
+                    push(`${currentApp.to}/${item.id ? item.id : item.code}`);
+                  }}
+                >
+                  <td className=" pl-4 w-10" tabIndex={-1}>
+                    <div className="">
+                      <input
+                        type="checkbox"
+                        className="cursor-pointer"
+                        id={`checkbox-comp-${index}`}
+                        defaultValue={""}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor={`checkbox-comp-${index}`}
+                      ></label>
+                    </div>
+                  </td>
+                  {config.fields
+                    .filter((fld) => fld.listView)
+                    .map((fld) => {
+                      return (
+                        <td
+                          key={fld.name}
+                          className="truncate max-w-[94px] w-[94px]"
+                          data-tooltip-delay="1000"
+                          tabIndex={-1}
+                          data-tooltip={item[fld.name]}
+                          title=""
+                        >
+                          {fld.type === "text"
+                            ? item[fld.name]
+                            : config.scopedSlots && config.scopedSlots[fld.name]
+                            ? config.scopedSlots[fld.name](item)
+                            : ""}
+                        </td>
+                      );
+                    })}
+                  <td tabIndex={-1}></td>
+                </tr>
+              );
+            })}
         </tbody>
         <tfoot></tfoot>
       </table>

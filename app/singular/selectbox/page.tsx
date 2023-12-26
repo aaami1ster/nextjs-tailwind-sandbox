@@ -1,7 +1,7 @@
-import React from 'react'
-import CustomSelectBox from './CustomSelectBox'
+import React from "react";
+import CustomSelectBox from "./CustomSelectBox";
 
-type Props = {}
+type Props = {};
 
 const SelectBox = (props: Props) => {
   return (
@@ -11,7 +11,7 @@ const SelectBox = (props: Props) => {
       <br />
       <CustomSelectBox />
     </div>
-  )
-}
+  );
+};
 
-export default SelectBox
+export default SelectBox;

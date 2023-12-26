@@ -21,12 +21,12 @@ const LanguageSelectBox = (props: Props) => {
         <div
           onClick={() => {
             if (!open) {
-              return setOpen('LanguageMenu');
+              return setOpen("LanguageMenu");
             }
-            if (open === 'LanguageMenu') {
+            if (open === "LanguageMenu") {
               return setOpen(false);
             } else {
-              return setOpen('LanguageMenu');
+              return setOpen("LanguageMenu");
             }
           }}
           className="p-2 cursor-pointer"
@@ -35,7 +35,7 @@ const LanguageSelectBox = (props: Props) => {
         </div>
         <div
           className={`flex flex-col bg-white w-20 rounded-b-sm transition-all duration-200 overflow-hidden ${
-            open === 'LanguageMenu' ? "opacity-100 h-auto" : "opacity-0 h-0"
+            open === "LanguageMenu" ? "opacity-100 h-auto" : "opacity-0 h-0"
           } absolute top-10 right-0  shadow-lg text-[#495057]`}
         >
           {languages.map((item) => (
@@ -47,7 +47,9 @@ const LanguageSelectBox = (props: Props) => {
               className={`flex justify-center items-center gap-x-2 px-2 py-1 hover:bg-black-rgba cursor-pointer`}
             >
               {/* <AiOutlineCheck className={`text-sky-300`} /> */}
-              <Link href={item.route}><span className={item.flag}></span></Link>
+              <Link href={item.route}>
+                <span className={item.flag}></span>
+              </Link>
             </div>
           ))}
         </div>

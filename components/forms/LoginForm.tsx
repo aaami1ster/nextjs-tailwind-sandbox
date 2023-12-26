@@ -129,7 +129,7 @@ const LoginForm = (props: Props) => {
                         className="text-[#35979c] cursor-pointer"
                         href="/web/signup?"
                       >
-                        Don't have an account?
+                        {"Don\'t have an account?"}
                       </a>
                       <a
                         className="text-[#35979c] cursor-pointer"

@@ -23,8 +23,7 @@ const Breadcrumb = ({
   if (pathNames) {
     items = pathNames.map((link, index) => {
       let href = `/${pathNames.slice(0, index + 1).join("/")}`;
-      let itemClasses =
-        paths === href ? "text-[#6c757d]" : "text-[#66598f]";
+      let itemClasses = paths === href ? "text-[#6c757d]" : "text-[#66598f]";
       let itemLink = capitalizeLinks
         ? link[0].toUpperCase() + link.slice(1, link.length)
         : link;
@@ -36,11 +35,16 @@ const Breadcrumb = ({
               " inline-block max-w-full whitespace-nowrap overflow-hidden text-ellipsis align-top",
               "flex items-center",
               "pl-2", // breadcrumb-item
-              {" before:float-left before:pr-2 before:text-[#6c757d] before:content-['/']" : index !== 0 && pathNames.length === index + 1 },
-              itemClasses,
+              {
+                " before:float-left before:pr-2 before:text-[#6c757d] before:content-['/']":
+                  index !== 0 && pathNames.length === index + 1,
+              },
+              itemClasses
             )}
           >
-            <Link href={href}>{(pathNames.length === index + 1) && title ? title : itemLink}</Link>
+            <Link href={href}>
+              {pathNames.length === index + 1 && title ? title : itemLink}
+            </Link>
           </li>
         </React.Fragment>
       );
@@ -48,7 +52,12 @@ const Breadcrumb = ({
   }
 
   return (
-    <ol className={clsx(containerClasses, "flex text-[18px] min-w-0 flex-wrap bg-white ps")}>
+    <ol
+      className={clsx(
+        containerClasses,
+        "flex text-[18px] min-w-0 flex-wrap bg-white ps"
+      )}
+    >
       {items}
     </ol>
   );

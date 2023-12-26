@@ -1,8 +1,5 @@
 import { ConfigProps } from "@/lib/types";
-import {
-  employeeFields,
-  employeeParams,
-} from "./employee.fields";
+import { employeeFields, employeeParams } from "./employee.fields";
 import {
   createQuery,
   extractQuery,
@@ -53,12 +50,12 @@ const employeeConfigs: ConfigProps = {
 
   // form
   disableEdit: false,
-  getVariables: '',
-//   ({ values, initialValues, id }: any) => {
-//     console.log("getVariables Employee");
-//     let variables: any = {};
-//     return variables;
-//   },
+  getVariables: "",
+  //   ({ values, initialValues, id }: any) => {
+  //     console.log("getVariables Employee");
+  //     let variables: any = {};
+  //     return variables;
+  //   },
 };
 
 export default employeeConfigs;

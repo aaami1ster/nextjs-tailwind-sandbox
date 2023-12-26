@@ -24,12 +24,12 @@ const UserAreaSelectBox = (props: Props) => {
         <div
           onClick={() => {
             if (!open) {
-              return setOpen('UserAreaMenu');
+              return setOpen("UserAreaMenu");
             }
-            if (open === 'UserAreaMenu') {
+            if (open === "UserAreaMenu") {
               return setOpen(false);
             } else {
-              return setOpen('UserAreaMenu');
+              return setOpen("UserAreaMenu");
             }
           }}
           className="py-2 px-4 cursor-pointer"
@@ -37,7 +37,7 @@ const UserAreaSelectBox = (props: Props) => {
           <div className="flex flex-row items-center justify-between">
             <Image
               src={"/1.jpeg"}
-              alt={`'s profile picture`}
+              alt={`profile picture`}
               className="mr-2 rounded-full"
               width={32}
               height={32}
@@ -47,7 +47,7 @@ const UserAreaSelectBox = (props: Props) => {
         </div>
         <div
           className={`flex flex-col bg-white w-48 rounded-b-sm transition-all duration-200 overflow-hidden ${
-            open == 'UserAreaMenu' ? "opacity-100 h-auto" : "opacity-0 h-0"
+            open == "UserAreaMenu" ? "opacity-100 h-auto" : "opacity-0 h-0"
           } absolute top-10 right-0 shadow-lg text-[#495057]`}
         >
           {actions.map((item) =>
@@ -65,7 +65,9 @@ const UserAreaSelectBox = (props: Props) => {
                 }}
                 className={`flex justify-start items-center gap-x-2 px-2 py-1 hover:bg-black-rgba cursor-pointer`}
               >
-                <Link className="text-xs" href={item.route}>{item.label}</Link>
+                <Link className="text-xs" href={item.route}>
+                  {item.label}
+                </Link>
               </div>
             )
           )}

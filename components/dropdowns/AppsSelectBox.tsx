@@ -10,12 +10,6 @@ import { apps } from "@/apps";
 import { MenuContext } from "@/context/MenuContext";
 import { useRouter } from "next/navigation";
 
-// const apps = [
-//   { id: 1, label: 'Discuss', icon: "fi fi-sa", route: "/" },
-//   { id: 2, label: 'Employees', icon: "fi fi-gb", route: "/employees" },
-//   { id: 3, label: 'Apps', icon: "fi fi-gb", route: "/employees" },
-//   { id: 4, label: 'Settings', icon: "fi fi-gb", route: "/employees" },
-// ];
 type Props = {};
 
 const AppsSelectBox = (props: Props) => {
@@ -29,23 +23,23 @@ const AppsSelectBox = (props: Props) => {
     <>
       <div className="flex flex-col justify-content hover:bg-black-rgba items-center relative z-30">
         <div
-         onClick={() => {
-          if (!open) {
-            return setOpen('AppsMenu');
-          }
-          if (open === 'AppsMenu') {
-            return setOpen(false);
-          } else {
-            return setOpen('AppsMenu');
-          }
-        }}
+          onClick={() => {
+            if (!open) {
+              return setOpen("AppsMenu");
+            }
+            if (open === "AppsMenu") {
+              return setOpen(false);
+            } else {
+              return setOpen("AppsMenu");
+            }
+          }}
           className="py-2 px-4 cursor-pointer"
         >
           <IoAppsSharp className="text-secondary hover:text-white text-2xl cursor-pointer" />
         </div>
         <div
           className={`flex flex-col bg-white w-40 transition-all duration-200 overflow-hidden ${
-            open === 'AppsMenu' ? "opacity-100 h-auto" : "opacity-0 h-0"
+            open === "AppsMenu" ? "opacity-100 h-auto" : "opacity-0 h-0"
           } absolute top-10 left-0 shadow-lg text-[#495057]`}
         >
           {apps.map((item) => (
@@ -62,7 +56,6 @@ const AppsSelectBox = (props: Props) => {
                   console.log(item);
                   setCurrentApp(item);
                   push(`${item.to}`);
-                  
                 }}
               >
                 <span className="pl-5 pr-5">{item.name}</span>

@@ -12,7 +12,7 @@ import { getOne } from "@/lib/api";
 
 type Props = { config: ConfigProps; variables: any };
 
-const Form = async({ config, variables }: Props) => {
+const Form = async ({ config, variables }: Props) => {
   const { currentPathname, setCurrentPathname } = useContext(AppContext);
   const pathname = usePathname();
   const data = await getOne(config.getOneQuery, variables);
@@ -80,25 +80,27 @@ const Form = async({ config, variables }: Props) => {
           {}
           <FormGroup>
             <FormInnerGroup col={12}>
-              {config.fields.filter((fld) => fld.name !== 'name' ).map((fld) => {
-                return (
-                  <FormInput
-                    key={fld.name}
-                    name={fld.name}
-                    label={fld.label}
-                    value={
-                      fld.type === "text"
-                        ? data[fld.name]
-                        : config.scopedSlots && config.scopedSlots[fld.name]
-                        ? config.scopedSlots[fld.name](data)
-                        : ""
-                    }
-                    type={fld.type}
-                    onchange={() => console.log("changed...")}
-                    className="group"
-                  />
-                );
-              })}
+              {config.fields
+                .filter((fld) => fld.name !== "name")
+                .map((fld) => {
+                  return (
+                    <FormInput
+                      key={fld.name}
+                      name={fld.name}
+                      label={fld.label}
+                      value={
+                        fld.type === "text"
+                          ? data[fld.name]
+                          : config.scopedSlots && config.scopedSlots[fld.name]
+                          ? config.scopedSlots[fld.name](data)
+                          : ""
+                      }
+                      type={fld.type}
+                      onchange={() => console.log("changed...")}
+                      className="group"
+                    />
+                  );
+                })}
             </FormInnerGroup>
           </FormGroup>
         </div>

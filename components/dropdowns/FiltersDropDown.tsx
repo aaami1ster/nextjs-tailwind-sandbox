@@ -52,7 +52,10 @@ const FiltersDropDown = (props: Props) => {
   "
           >
             <li className="px-3 py-1 hover:bg-gray-100">
-              <select name="filters-fields" className="o_input o_generator_menu_field">
+              <select
+                name="filters-fields"
+                className="o_input o_generator_menu_field"
+              >
                 <option value="message_needaction">Action Needed</option>
                 <option value="active">Active</option>
                 <option value="activity_ids">Activities</option>

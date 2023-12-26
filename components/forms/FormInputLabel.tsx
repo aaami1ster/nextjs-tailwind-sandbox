@@ -15,7 +15,12 @@ const FormInputLabel = ({ id, name, label, info }: Props) => {
         className=" font-medium mb-[5px] text-base inline-block break-words"
         htmlFor={name}
       >
-        {label ? label : (name[0].toUpperCase() + name.slice(1, name.length)).replace(/([a-z0-9])([A-Z])/g, '$1 $2')}
+        {label
+          ? label
+          : (name[0].toUpperCase() + name.slice(1, name.length)).replace(
+              /([a-z0-9])([A-Z])/g,
+              "$1 $2"
+            )}
         {/* <div className="p-10">
           <div className="group relative w-max">
             <button>Click me!</button>

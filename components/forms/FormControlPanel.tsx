@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import Breadcrumb from "../Breadcrumb";
 import MySelectBox from "../dropdowns/MySelectBox";
@@ -28,7 +28,7 @@ const FormControlPanel = ({ config, id, title }: FormControlPanelProps) => {
             "flex flex-grow items-center"
           )}
         >
-          <Breadcrumb title={title || 'New'} />
+          <Breadcrumb title={title || "New"} />
           <div
             className={clsx(
               " whitespace-nowrap",
@@ -103,8 +103,12 @@ const FormControlPanel = ({ config, id, title }: FormControlPanelProps) => {
               ]}
             />
           </div>
-          { id ? <CPPager /> : null}
-          <Button color="primary" outline={true} onClick={() => push(`${config.path}/create`)}>
+          {id ? <CPPager /> : null}
+          <Button
+            color="primary"
+            outline={true}
+            onClick={() => push(`${config.path}/create`)}
+          >
             New
           </Button>
         </div>

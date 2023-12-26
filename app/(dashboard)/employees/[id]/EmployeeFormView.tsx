@@ -119,12 +119,6 @@ const EmployeeFormView = ({ data }: Props) => {
                 "absolute -top-[5px] -right-[5px] rounded-[50%] bg-white h-4 w-4 "
               }
             >
-              {/* <small
-                role="img"
-                className="fa fa-fw fa-circle text-warning o_button_icon hr_presence"
-                aria-label="To define"
-                title="To define"
-              /> */}
               <FaCircle
                 className={
                   "text-center text-[#ffac00] " + // text-warning

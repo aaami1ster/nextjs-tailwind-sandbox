@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { FaArrowRight } from "react-icons/fa";
 import { FieldDefType } from "@/lib/types";
-import {  departments, employees, jobPositions } from "@/data";
+import { departments, employees, jobPositions } from "@/data";
 
 type Props = FieldDefType & {
   id?: string;
@@ -11,17 +11,24 @@ type Props = FieldDefType & {
   onchange: any;
 };
 
-const FormInputSelect = ({ id, name, value, subject, type, onchange }: Props) => {
+const FormInputSelect = ({
+  id,
+  name,
+  value,
+  subject,
+  type,
+  onchange,
+}: Props) => {
   const [open, setOpen] = useState(false);
   let list: any[] = [];
   switch (subject) {
-    case 'Employee':
+    case "Employee":
       list = employees;
       break;
-    case 'Department':
+    case "Department":
       list = departments;
       break;
-    case 'JobPosition':
+    case "JobPosition":
       list = jobPositions;
       break;
     default:

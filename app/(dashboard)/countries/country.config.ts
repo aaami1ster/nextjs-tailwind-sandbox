@@ -1,8 +1,5 @@
 import { ConfigProps } from "@/lib/types";
-import {
-  countryFields,
-  countryParams,
-} from "./country.fields";
+import { countryFields, countryParams } from "./country.fields";
 import {
   createQuery,
   extractQuery,
@@ -53,12 +50,12 @@ const countryConfigs: ConfigProps = {
 
   // form
   disableEdit: false,
-  getVariables: '',
-//   ({ values, initialValues, id }: any) => {
-//     console.log("getVariables Country");
-//     let variables: any = {};
-//     return variables;
-//   },
+  getVariables: "",
+  //   ({ values, initialValues, id }: any) => {
+  //     console.log("getVariables Country");
+  //     let variables: any = {};
+  //     return variables;
+  //   },
 };
 
 export default countryConfigs;
