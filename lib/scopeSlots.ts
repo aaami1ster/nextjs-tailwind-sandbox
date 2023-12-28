@@ -1,16 +1,27 @@
-"use client";
-import { scopedSlotType } from "./types";
+import moment from "moment";
 
-export const countryScopedSlots: scopedSlotType = {
-  continent: (item: any) =>
-    item.continent && item.continent.name ? item.continent.name : "",
-  // "createdAt": (item: any) => (item.createdAt ? moment(item.createdAt).format() : ""),
-  // "updatedAt": (item: any) => (item.updatedAt ? moment(item.updatedAt).format() : ""),
-};
+export const getCountryScopedSlots = ({ key, value }: any) => {
+  switch (key) {
+    case 'continent':
+      return value && value.name ? value.name : "";
+    case 'createdAt':
+    case 'updatedAt':
+      return value ? moment(value).format() : ""
+    default:
+      return value;
+  }
+}
 
-export const employeeScopedSlots: scopedSlotType = {
-  continent: (item: any) =>
-    item.continent && item.continent.name ? item.continent.name : "",
-  // "createdAt": (item: any) => (item.createdAt ? moment(item.createdAt).format() : ""),
-  // "updatedAt": (item: any) => (item.updatedAt ? moment(item.updatedAt).format() : ""),
-};
+export const getEmployeeScopedSlots = ({ key, value }: any) => {
+  switch (key) {
+    case 'manager':
+      return value && value.name ? value.name : "";
+
+    case 'createdAt':
+    case 'updatedAt':
+      return value ? moment(value).format() : ""
+    default:
+      return value;
+  }
+
+}

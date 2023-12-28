@@ -55,8 +55,9 @@ const ListControlPanel = ({ config }: Props) => {
         <div className="flex flex-grow basis-0">
           <div className="" role="toolbar" aria-label="Main actions">
             <Button
+              type={'link'}
               color="primary"
-              onClick={() => push(`${config.path}/create`)}
+              href={`${config.path}/create`}
             >
               New
             </Button>

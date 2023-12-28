@@ -1,6 +1,8 @@
 import { lusitana } from "@/components/fonts";
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
+// import { redirect } from "next/navigation";
 import React from "react";
 
 type Props = {};
@@ -115,15 +117,17 @@ const LoginForm = (props: Props) => {
                       "clearfix oe_login_buttons text-center gap-1 grid mb-1 pt-4"
                     )}
                   >
-                    <button
+                    <Link
+                      href={'/employees'}
                       type="submit"
                       className={clsx(
                         "inline-block font-light text-center align-middle cursor-pointer select-none border border-solid border-transparent py-[0.375rem] px-3 text-xs rounded transition", // btn
                         " bg-[#35979c] border-[#35979c] text-white" // btn-primary
                       )}
+                      // onClick={() => redirect('/employees')}
                     >
                       Log in
-                    </button>
+                    </Link>
                     <div className="justify-between mt-2 flex text-sm">
                       <a
                         className="text-[#35979c] cursor-pointer"

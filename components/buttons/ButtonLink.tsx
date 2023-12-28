@@ -9,25 +9,20 @@ type Props = {
   color?: "primary" | "secondary";
   outline?: boolean;
   children?: React.ReactNode;
-  onClick?: React.MouseEventHandler;
-  href?: Url;
+  href: Url;
 };
 
-const Button = ({
-  type = 'button',
+const ButtonLink = ({
   className,
   color = "secondary",
   outline,
-  onClick,
   href,
   children,
 }: Props) => {
-  const TheComponent = type === 'button' ? 'button' : Link;
   switch (color) {
     case "primary":
       return (
-        <TheComponent
-          type="button"
+        <Link
           className={clsx(
             className,
             `border uppercase font-medium text-base py-1 px-3 rounded`,
@@ -40,16 +35,15 @@ const Button = ({
             }
           )}
           data-hotkey="c"
-          onClick={onClick}
-          href={href || ""}
+          href={href}
         >
           {children}
-        </TheComponent>
+        </Link>
       );
     case "secondary":
     default:
       return (
-        <TheComponent
+        <Link
           type="button"
           className={clsx(
             className,
@@ -63,13 +57,12 @@ const Button = ({
             }
           )}
           data-hotkey="c"
-          onClick={onClick}
-          href={href || ""}
+          href={href}
         >
           {children}
-        </TheComponent>
+        </Link>
       );
   }
 };
 
-export default Button;
+export default ButtonLink;

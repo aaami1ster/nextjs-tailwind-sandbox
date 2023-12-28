@@ -1,6 +1,7 @@
+// import 'server-only';
+
 import createApolloClient from "@/apollo.client";
 import { gql } from "@apollo/client";
-
 export const getQuery = (
   key: string,
   params: string[] = ["_id", "name", "createdAt", "updatedAt"],
@@ -40,7 +41,7 @@ export async function getList(aquery: string) {
         ${aquery}
       `,
     });
-    console.log(data);
+    // console.log(data);
     res = data.data.slice(0, 10);
   } catch (error) {
     console.error(error);

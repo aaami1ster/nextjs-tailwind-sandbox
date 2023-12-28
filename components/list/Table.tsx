@@ -1,20 +1,13 @@
-"use client";
-
-import React, { useContext } from "react";
+import React from "react";
 import { FaAngleDown } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import { AppContext } from "@/context/AppContext";
 import { ConfigProps } from "@/lib/types";
+import TableData from "./TableData";
 type Props = {
   config: ConfigProps;
   data: any[];
 };
 
 const Table = ({ config, data }: Props) => {
-  // console.log(config.scopedSlots)
-  const { currentApp } = useContext(AppContext);
-  // console.log({ length: data.length })
-  const { push } = useRouter();
   return (
     <div className="max-h-full relative flex" tabIndex={-1}>
       <table className=" table-fixed bg-white border-collapse relative flex-1 border-b">
@@ -75,9 +68,6 @@ const Table = ({ config, data }: Props) => {
                   key={item.id ? item.id : item.code}
                   className=" border-b-[1px] cursor-pointer hover:bg-[#0000000e]"
                   data-id={`datapoint_${index}`}
-                  onClick={() => {
-                    push(`${currentApp.to}/${item.id ? item.id : item.code}`);
-                  }}
                 >
                   <td className=" pl-4 w-10" tabIndex={-1}>
                     <div className="">
@@ -97,20 +87,13 @@ const Table = ({ config, data }: Props) => {
                     .filter((fld) => fld.listView)
                     .map((fld) => {
                       return (
-                        <td
+                        <TableData
                           key={fld.name}
-                          className="truncate max-w-[94px] w-[94px]"
-                          data-tooltip-delay="1000"
-                          tabIndex={-1}
-                          data-tooltip={item[fld.name]}
-                          title=""
-                        >
-                          {fld.type === "text"
-                            ? item[fld.name]
-                            : config.scopedSlots && config.scopedSlots[fld.name]
-                            ? config.scopedSlots[fld.name](item)
-                            : ""}
-                        </td>
+                          name={fld.name}
+                          type={fld.type}
+                          config={config}
+                          item={item}
+                        />
                       );
                     })}
                   <td tabIndex={-1}></td>

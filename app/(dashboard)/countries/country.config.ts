@@ -9,7 +9,7 @@ import {
   aggQuery,
   importQuery,
 } from "@/lib/utils";
-import { countryScopedSlots } from "@/lib/scopeSlots";
+import { getCountryScopedSlots } from "@/lib/scopeSlots";
 
 const countryConfigs: ConfigProps = {
   getListQuery: `
@@ -45,7 +45,7 @@ const countryConfigs: ConfigProps = {
   hideCreate: false,
   hideImport: false,
   xlsx: true,
-  scopedSlots: countryScopedSlots,
+  // scopedSlots: getCountryScopedSlots,
   filtersName: ["flatFilters"],
 
   // form

@@ -105,9 +105,10 @@ const FormControlPanel = ({ config, id, title }: FormControlPanelProps) => {
           </div>
           {id ? <CPPager /> : null}
           <Button
+            type={'link'}
             color="primary"
             outline={true}
-            onClick={() => push(`${config.path}/create`)}
+            href={`${config.path}/create`}
           >
             New
           </Button>
