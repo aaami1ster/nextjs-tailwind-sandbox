@@ -1,7 +1,7 @@
 "use client";
 
-import { notFound, usePathname } from "next/navigation";
-import React, { useContext, useEffect } from "react";
+import { notFound } from "next/navigation";
+import React, { useContext, useEffect, useState } from "react";
 import FormInput from "./FormInput";
 import FormGroup from "./FormGroup";
 import FormInnerGroup from "./FormInnerGroup";
@@ -9,23 +9,24 @@ import Button from "@/components/buttons/Button";
 import { AppContext } from "@/context/AppContext";
 import { ConfigProps } from "@/lib/types";
 import { getOne } from "@/lib/api";
+import clsx from "clsx";
 
 type Props = { config: ConfigProps; variables: any };
 
-const Form = async ({ config, variables }: Props) => {
-  const { currentPathname, setCurrentPathname } = useContext(AppContext);
-  const pathname = usePathname();
-  const data = await getOne(config.getOneQuery, variables);
+const Form = ({ config, variables }: Props) => {
+  const [data, setData] = useState<any>(null);
+  useContext(AppContext);
+  // const data = await getOne(config.getOneQuery, variables);
+
+  useEffect(() => {
+    getOne(config.getOneQuery, variables).then((res) => {
+      setData(res);
+    });
+  }, [config.getOneQuery, variables]);
+
   if (!data) {
-    notFound();
+    return <>loading...</>;
   }
-
-  // useEffect(() => {
-  //   if (currentPathname !== pathname) {
-  //     setCurrentPathname(pathname);
-  //   }
-  // }, [currentPathname, pathname, setCurrentPathname]);
-
   return (
     <div className="flex flex-col">
       {/* form page */}
@@ -34,6 +35,89 @@ const Form = async ({ config, variables }: Props) => {
         <div className="bg-white relative flex justify-between items-center border-b pl-4">
           <div className="o_statusbar_buttons flex align-items-center content-around flex-wrap">
             <Button>{"Launch Plan"}</Button>
+          </div>
+          <div
+            // name="state"
+            className={clsx(
+              " self-start inline-block" + //"o_field_widget" +
+                "o_readonly_modifier" +
+                "o_field_statusbar"
+            )}
+          >
+            {/* o_statusbar_status */}
+            <div className="flex content-around ml-auto flex-row-reverse flex-wrap-reverse items-stretch">
+              <button
+                type="button"
+                className={clsx(
+                  "o_arrow_button disabled uppercase" +
+                    "inline-block font-medium text-center align-middle select-none border border-solid border-transparent py-[0.375rem] px-3" // btn
+                )}
+                disabled={true}
+                role="radio"
+                aria-label="Not active state"
+                aria-checked="false"
+                data-value="refused"
+              >
+                Refused
+              </button>
+              <button
+                type="button"
+                className={clsx(
+                  "o_arrow_button disabled uppercase" +
+                    "inline-block font-medium text-center align-middle select-none border border-solid border-transparent py-[0.375rem] px-3" // btn
+                )}
+                disabled={true}
+                role="radio"
+                aria-label="Not active state"
+                aria-checked="false"
+                data-value="done"
+              >
+                Done
+              </button>
+              <button
+                type="button"
+                className={clsx(
+                  "o_arrow_button disabled uppercase" +
+                    "inline-block font-medium text-center align-middle select-none border border-solid border-transparent py-[0.375rem] px-3" // btn
+                )}
+                disabled={true}
+                role="radio"
+                aria-label="Not active state"
+                aria-checked="false"
+                data-value="approved"
+              >
+                Approved
+              </button>
+              <button
+                type="button"
+                className={clsx(
+                  "o_arrow_button_current o_arrow_button disabled uppercase" +
+                    "inline-block font-medium text-center align-middle select-none border border-solid border-transparent py-[0.375rem] px-3" // btn
+                )}
+                disabled={true}
+                role="radio"
+                aria-label="Not active state"
+                aria-checked="false"
+                data-value="reported"
+              >
+                Submitted
+              </button>
+              <button
+                type="button"
+                className={clsx(
+                  "o_arrow_button disabled uppercase" +
+                    "inline-block font-medium text-center align-middle select-none border border-solid border-transparent py-[0.375rem] px-3" // btn
+                )}
+                disabled={true}
+                role="radio"
+                aria-label="Current state"
+                aria-checked="true"
+                aria-current="step"
+                data-value="draft"
+              >
+                To Submit
+              </button>
+            </div>
           </div>
         </div>
         {/* form sheet */}
